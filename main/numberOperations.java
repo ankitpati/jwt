@@ -1,4 +1,4 @@
-/* assignment3.java */
+/* numberOperations.java */
 /* Date  : 20 January 2016
  * Author: Ankit Pati
  */
@@ -113,4 +113,4 @@ class assignment3{
         }
     }
 };
-/* end of assignment3.java */
+/* end of numberOperations.java */

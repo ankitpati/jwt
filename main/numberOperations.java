@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-class assignment3{
+class numberOperations{
     static int factorial(int n)
     {
         int ret;
@@ -80,10 +80,10 @@ class assignment3{
                 "( 6) Sum of Digits\n"
             );
 
-            choice = sc.nextInt();
+            choice = sc.nextInt(); sc.nextLine();
             if(choice == 0) System.exit(0);
             System.out.printf("Enter number:\n");
-            n = sc.nextInt();
+            n = sc.nextInt(); sc.nextLine();
 
             switch(choice){
             case 1:

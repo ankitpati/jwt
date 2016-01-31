@@ -4,6 +4,7 @@
  */
 
 import java.lang.*;
+import java.util.Scanner;
 
 class stringOperations{
     public static String strcpy(String str)
@@ -92,7 +93,9 @@ class stringOperations{
 
     public static void main(String args[])
     {
-        int choice, n;
+        int choice;
+        int index;
+        String str1, str2;
         Scanner sc;
 
         sc = new Scanner(System.in);
@@ -110,32 +113,47 @@ class stringOperations{
                 "( 7) Substring\n"
             );
 
-            choice = sc.nextInt();
+            choice = sc.nextInt(); sc.nextLine();
             if(choice == 0) System.exit(0);
-            System.out.printf("Enter number:\n");
-            n = sc.nextInt();
+            System.out.printf("Enter string 1:\n");
+            str1 = sc.nextLine();
 
             switch(choice){
             case 1:
-                System.out.printf("%d! = %d\n", n, factorial(n));
+                System.out.printf("%s\n", strcpy(str1));
                 break;
             case 2:
-                System.out.printf("%s\n", isPrime(n) ? "Prime" : "Composite");
+                System.out.printf("Enter string 2:\n");
+                str2 = sc.nextLine();
+                System.out.printf("%s\n", strcat(str1, str2));
                 break;
             case 3:
-                System.out.printf("%s\n", isEven(n) ? "Even" : "Odd");
+                System.out.printf("%d\n", strlen(str1));
                 break;
             case 4:
-                printFibonacciSeries(n);
+                System.out.printf("%s\n", revstr(str1));
                 break;
             case 5:
-                System.out.printf("Reversed: %d\n", reverseNumber(n));
+                System.out.printf(
+                    "%sPalindrome\n",
+                    isPalindrome(str1) ? "" : "Not "
+                );
                 break;
             case 6:
-                System.out.printf("Sum of Digits: %d\n", addDigits(n));
+                System.out.printf("Enter string 2:\n");
+                str2 = sc.nextLine();
+                System.out.printf(
+                    "strcmp(str1, str2): %d\n",
+                    strcmp(str1, str2)
+                );
                 break;
-            default:
-                System.out.printf("Incorrect Choice!\n");
+            case 7:
+                System.out.printf("Enter string 2:\n");
+                str2 = sc.nextLine();
+                if((index = strstr(str1, str2)) == -1)
+                    System.out.printf("Substring not found.\n");
+                else
+                    System.out.printf("Index of Substring: %d\n", index);
                 break;
             }
 

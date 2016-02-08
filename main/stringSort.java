@@ -1,3 +1,8 @@
+/* stringSort.java */
+/* Date  : 03 February 2016
+ * Author: Ankit Pati
+ */
+
 import java.lang.*;
 import java.util.Scanner;
 
@@ -38,3 +43,4 @@ class stringSort{
         return;
     }
 };
+/* end of stringSort.java */

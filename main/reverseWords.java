@@ -20,7 +20,6 @@ class reverseWords{
 
     public static void main(String args[]) throws IOException
     {
-        int offset;
         StringTokenizer st;
 
         System.out.printf("Enter a sentence.\n");

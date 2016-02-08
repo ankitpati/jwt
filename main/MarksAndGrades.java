@@ -11,15 +11,14 @@ class MarksAndGrades {
         int marks;
         float gradePoint;
         String grade;
-        BufferedReader br;
-
-        br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.printf("Enter marks:\n");
 
         marks = 0;
         try{
-            marks = Integer.parseInt(br.readLine());
+            marks = Integer.parseInt(
+                new BufferedReader(
+                    new InputStreamReader(System.in)).readLine());
         } catch(NumberFormatException nfe){
             System.err.printf("Entered string is not a number.\n");
             System.exit(1);

@@ -11,13 +11,11 @@ class electricityBill{
     {
         int units;
         float bill;
-        Scanner sc;
 
         bill = 250.0f;
-        sc = new Scanner(System.in);
 
         System.out.printf("How many units consumed?\n");
-        units = sc.nextInt();
+        units = new Scanner(System.in).nextInt();
 
              if(units < 100) bill += 1.5f * units;
         else if(units < 200) bill += 1.5f * units + 2.0f * (units - 100);

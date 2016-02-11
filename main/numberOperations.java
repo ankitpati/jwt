@@ -114,3 +114,48 @@ class numberOperations{
     }
 };
 /* end of numberOperations.java */
+
+/* OUTPUT
+
+What would you like to do?
+( 0) Exit
+( 1) Factorial
+( 2) Prime or Composite
+( 3) Even  or Odd
+( 4) Fibonacci Series
+( 5) Reverse Number
+( 6) Sum of Digits
+
+1
+Enter number:
+5
+5! = 120
+
+2
+Enter number:
+43
+Prime
+
+3
+Enter number:
+48
+Even
+
+4
+Enter number:
+7
+0 1 1 2 3 5 8
+
+5
+Enter number:
+543
+Reversed: 345
+
+6
+Enter number:
+159
+Sum of Digits: 15
+
+0
+
+*/

@@ -30,3 +30,11 @@ class electricityBill{
     }
 };
 /* end of electricityBill.java */
+
+/* OUTPUT
+
+How many units consumed?
+243
+Bill amount is 1008.000000.
+
+*/

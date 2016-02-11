@@ -28,3 +28,11 @@ class QuadraticRoot{
     }
 };
 /* end of QuadraticRoot.java */
+
+/* OUTPUT
+
+Enter a, b, c in ax^2 + bx + c = 0
+1 2 1
+x = -1.000000, -1.000000
+
+*/

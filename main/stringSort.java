@@ -44,3 +44,12 @@ class stringSort{
     }
 };
 /* end of stringSort.java */
+
+/* OUTPUT
+
+Enter a string:
+hello, world
+Sorted string:
+ ,dehllloorw
+
+*/

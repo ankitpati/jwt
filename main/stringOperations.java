@@ -162,3 +162,60 @@ class stringOperations{
     }
 };
 /* end of stringOperations.java */
+
+/* OUTPUT
+
+What would you like to do?
+( 0) Exit
+( 1) Copy
+( 2) Concatenate
+( 3) Find Length
+( 4) Reverse
+( 5) Check Palindrome
+( 6) Compare
+( 7) Substring
+
+1
+Enter string 1:
+hello
+hello
+
+2
+Enter string 1:
+hello
+Enter string 2:
+world
+helloworld
+
+3
+Enter string 1:
+hello
+5
+
+4
+Enter string 1:
+world
+dlrow
+
+5
+Enter string 1:
+racecar
+Palindrome
+
+6
+Enter string 1:
+hello
+Enter string 2:
+world
+strcmp(str1, str2): -15
+
+7
+Enter string 1:
+technetium
+Enter string 2:
+net
+Index of Substring: 4
+
+0
+
+*/

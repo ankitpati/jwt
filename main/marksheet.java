@@ -68,3 +68,20 @@ class marksheet{
     }
 };
 /* end of marksheet.java */
+
+/* OUTPUT
+
+Enter following details:
+- PRN   : 506
+- Name  : Ankit Pati
+- Dept. : IT
+- Marks in 5 subjects:
+32 38 51 53 59
+~~~~ Marksheet ~~~~
+- PRN   : 506
+- Name  : Ankit Pati
+- Dept. : IT
+- Total : 233.000000
+- Avg.  : 46.599998
+
+*/

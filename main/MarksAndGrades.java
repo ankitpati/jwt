@@ -14,7 +14,6 @@ class MarksAndGrades {
 
         System.out.printf("Enter marks:\n");
 
-        marks = 0;
         try{
             marks = Integer.parseInt(
                 new BufferedReader(
@@ -22,6 +21,7 @@ class MarksAndGrades {
         } catch(NumberFormatException nfe){
             System.err.printf("Entered string is not a number.\n");
             System.exit(1);
+            return;
         }
 
              if(marks >= 85) { gradePoint = 10.0f; grade = "A++"; }
@@ -40,3 +40,12 @@ class MarksAndGrades {
     }
 };
 /* end of MarksAndGrades.java */
+
+/* OUTPUT
+
+Enter marks:
+43
+Grade Point: 4.0
+Grade      : D
+
+*/

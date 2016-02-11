@@ -22,7 +22,7 @@ class pyramid{
 
         for(i = 0; i < n; ++i){
             for(j = 0; j <= i; ++j)
-                System.out.printf("%d ", (i*(i+1)/2 + j) * x);
+                System.out.printf("%3d ", (i*(i+1)/2 + j) * x);
             System.out.printf("\n");
         }
 
@@ -30,3 +30,17 @@ class pyramid{
     }
 };
 /* end of pyramid.java */
+
+/* OUTPUT
+
+Enter number:
+5
+Enter X:
+4
+  0
+  4   8
+ 12  16  20
+ 24  28  32  36
+ 40  44  48  52  56
+
+*/

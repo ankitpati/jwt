@@ -26,3 +26,17 @@ class diamondPattern{
     }
 };
 /* end of diamondPattern.java */
+
+/* OUTPUT
+
+Depth of central row?
+4
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+
+*/

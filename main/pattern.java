@@ -26,3 +26,18 @@ class pattern{
     }
 };
 /* end of pattern.java */
+
+/* OUTPUT
+
+*****
+****
+***
+**
+*
+*
+**
+***
+****
+*****
+
+*/

@@ -55,3 +55,16 @@ class countWords{
     }
 };
 /* end of countWords.java */
+
+/* OUTPUT
+
+Enter a paragraph. Use a blank line to end.
+
+This is a Java program.
+The coder is Boron.
+
+Enter a word to count.
+is
+Number of occurences are 2.
+
+*/

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<!-- timetable.html -->
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <base href="timetable_files/" />
+
+        <title>Timetable</title>
+
+        <style type="text/css">
+        <!--
+            h1{
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 12pt;
+                position: relative;
+                bottom: 0px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            img{
+                width: 3%;
+                height: 3%;
+                display: block;
+                margin-left: 5px;
+                margin-right: 5px;
+                float: left;
+            }
+
+            table{
+                width: 25%;
+            }
+
+            table.timetable{
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table.timetable td, table.timetable th{
+                border: 1px solid #000000;
+                text-align: center;
+                vertical-align: center;
+                width: 12.5%;
+            }
+
+            table.timetable td{
+                height: 32px;
+            }
+
+            table.timetable th, table.timetable .holiday{
+                height: 64px;
+            }
+
+            table.timetable .lunchbreak{
+                font-size: 24pt;
+                text-transform: uppercase;
+                transform: rotate(-90deg);
+            }
+
+            table.timetable .lunch{
+                border-top: 0px;
+            }
+
+            table.timetable .break{
+                border-bottom: 0px;
+            }
+
+            table.legend{
+                width: 50%;
+            }
+
+            table.legend thead{
+                text-transform: uppercase;
+            }
+        -->
+        </style>
+    </head>
+
+    <body>
+        <img src="logo.png" />
+        <h1>Symbiosis Institute of Technology</h1>
+        <br />
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Class : B.Tech(CS)</td>
+                    <td>Semester : VIII</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="timetable">
+            <thead>
+                <tr>
+                    <th>Day/Time</th>
+                    <th>10.00 - 10.55</th>
+                    <th>10.55 - 11.50</th>
+                    <th>11.50 - 12.45</th>
+                    <th>12.45 -  1.45</th>
+                    <th> 1.45 -  2.45</th>
+                    <th> 2.45 -  3.45</th>
+                    <th> 3.45 -  4.45</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="holiday">
+                    <th>Monday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="5" class="lunchbreak break">Break</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th rowspan="2">Tuesday</th>
+                    <td colspan="2">ES LAB (C1) [OS LAB-2] / GB</td>
+                    <td rowspan="2">CC [T3] / RJ</td>
+                    <td rowspan="2">ES [T3] / GB</td>
+                    <td rowspan="2">DP [T3] / MT</td>
+                    <td rowspan="2">IWT [T3] / PG</td>
+                </tr>
+                <tr>
+                    <td colspan="2">CC LAB (C2) [CL - 2] / SP</td>
+                </tr>
+
+                <tr>
+                    <th rowspan="2">Wednesday</th>
+                    <td colspan="2">DCS LAB (C1) [CL - 2] / SPP</td>
+                    <td rowspan="2">ES [T3] / GB</td>
+                    <td rowspan="2">DCS [T3] / SPP</td>
+                    <td rowspan="2">IWT [T3] / PG</td>
+                    <td rowspan="2">DP [T3] / MT</td>
+                </tr>
+                <tr>
+                    <td colspan="2">ES LAB (C2) [OS LAB]</td>
+                </tr>
+
+                <tr>
+                    <th rowspan="2">Thursday</th>
+                    <td colspan="2">CC LAB (C1) [CL - 2] / SP</td>
+                    <td rowspan="2">DP [T3] / MT</td>
+                    <td rowspan="5" class="lunchbreak lunch">Lunch</td>
+                    <td rowspan="2">DCS [T3] / SPP</td>
+                    <td rowspan="2">IWT [T3] / PG</td>
+                    <td rowspan="2">CC [T3] / RJ</td>
+                </tr>
+                <tr>
+                    <td colspan="2">IWT LAB (C2) [OS LAB] / PG</td>
+                </tr>
+
+                <tr>
+                    <th rowspan="2">Friday</th>
+                    <td colspan="2">IWT LAB (C1) [OS LAB] / KK</td>
+                    <td rowspan="2">DP [T3] / MT</td>
+                    <td rowspan="2">ES [T3] / GB</td>
+                    <td rowspan="2">CC [T3] / RJ</td>
+                    <td rowspan="2">DCS [T3] / SPP</td>
+                </tr>
+                <tr>
+                    <td colspan="2">DCS LAB (C2) [CL - 2] / SPP</td>
+                </tr>
+
+                <tr class="holiday">
+                    <th>Saturday</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="legend">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Faculty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IWT: Internet and Web Technologies</td>
+                    <td>SPP: Prof. Shraddha Phansalkar</td>
+                </tr>
+                <tr>
+                    <td>CC: Compiler Construction</td>
+                    <td>RJ: Prof. Rahul Joshi</td>
+                </tr>
+                <tr>
+                    <td>DP: Design Patterns</td>
+                    <td>PG: Prof. Praveen Gubbala</td>
+                </tr>
+                <tr>
+                    <td>ES: Embedded System</td>
+                    <td>MT: Prof. Manisha Tijare</td>
+                </tr>
+                <tr>
+                    <td>DCS: Distributed Component and System</td>
+                    <td>GB: Prof. Gaurav Bansod</td>
+                </tr>
+                <tr>
+                    <td>ACA: Advanced Computer Architecture</td>
+                    <td>SP: Prof. Shilpa Pawar</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>SB: Prof. Sourish Banerjee</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>KK: Prof. Kalyani Kadam</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+<!-- end of timetable.html -->

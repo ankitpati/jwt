@@ -60,7 +60,7 @@ class Student{
         System.out.printf("Number of students?\n");
         s = new Student[new Scanner(System.in).nextInt()];
 
-        System.out.printf("Enter details for %d students:\n", s.length);
+        System.out.printf("Details for %d students?\n", s.length);
         for(i = 0; i < s.length; ++i) s[i] = new Student();
 
         System.out.printf(
@@ -80,48 +80,9 @@ class Student{
 
 /* OUTPUT
 
-1
-Mayank Verma
-85.3
-165
-45
-1995-09-23
-
-2
-Ankit Pati
-95
-160
-43
-1996-04-02
-
-3
-Tiashaa Chatterjee
-90.6
-160
-50
-1995-12-13
-
-4
-Sahil Pandey
-95
-176
-40
-1995-10-16
-
-5
-Ravi Tripathi
-95
-150
-44
-2000-05-21
-
-*/
-
-/* OUTPUT
-
 Number of students?
 5
-Enter details for 5 students:
+Details for 5 students?
 Enter following details:
 - Roll   : 1
 - Name   : Mayank Verma

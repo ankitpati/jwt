@@ -19,6 +19,6 @@ public class Factorial{
 
 $ javac -d . Factorial.java
 
-./in/edu/sitpune/factorial/Factorial.class
+./in/edu/sitpune/ankitpati/factorial/Factorial.class
 
 */

@@ -3,7 +3,7 @@
  * Author: Ankit Pati
  */
 
-package in.edu.sitpune.factorial;
+package in.edu.sitpune.ankitpati.factorial;
 
 public class Factorial{
     public static int factorial(int n)
@@ -17,7 +17,7 @@ public class Factorial{
 
 /* OUTPUT
 
-javac -d . Factorial.java
+$ javac -d . Factorial.java
 
 ./in/edu/sitpune/factorial/Factorial.class
 

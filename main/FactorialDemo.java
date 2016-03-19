@@ -5,7 +5,7 @@
 
 import java.lang.*;
 import java.util.Scanner;
-import in.edu.sitpune.factorial.Factorial;
+import in.edu.sitpune.ankitpati.factorial.Factorial;
 
 class FactorialDemo{
     public static void main(String args[])

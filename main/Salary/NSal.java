@@ -8,6 +8,8 @@ package in.edu.sitpune.ankitpati.salary;
 import java.lang.*;
 
 public class NSal extends Exception{
+    final static long serialVersionUID = 0l;
+
     public NSal(String message)
     {
         super(message);

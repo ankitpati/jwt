@@ -4,7 +4,6 @@
  */
 
 import java.lang.*;
-import java.util.Scanner;
 import in.edu.sitpune.ankitpati.box.Box;
 
 class BoxDemo{

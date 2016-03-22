@@ -4,7 +4,6 @@
  */
 
 import java.lang.*;
-import java.util.Scanner;
 import in.edu.sitpune.ankitpati.transaction.Transaction;
 import in.edu.sitpune.ankitpati.account.Account;
 

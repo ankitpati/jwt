@@ -22,8 +22,8 @@ class EmailValidation{
         System.out.printf("Enter an email address:\n");
         if(
             Pattern.matches(
-                "[a-zA-Z0-9._]+@[a-zA-Z0-9._]+\\.[a-zA-Z0-9_]+",
-                new Scanner(System.in).nextLine()
+"[a-zA-Z0-9][a-zA-Z0-9._]+@[a-zA-Z0-9][a-zA-Z0-9._]+\\.[a-zA-Z0-9][a-zA-Z0-9_]+"
+                , new Scanner(System.in).nextLine()
             )
         )
             System.out.printf("Email is valid.\n");

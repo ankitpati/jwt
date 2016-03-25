@@ -4,7 +4,6 @@
  */
 
 import java.lang.*;
-import java.util.Scanner;
 
 abstract class Employee2{
     int id;
@@ -29,12 +28,9 @@ abstract class Employee2{
     public static void main(String args[])
     {
         int i, j, k;
-        Scanner sc;
         Employee2 e[];
         FixedSalary f[];
         HourlySalary h[];
-
-        sc = new Scanner(System.in);
 
         e = new Employee2[10];
         f = new FixedSalary[5];

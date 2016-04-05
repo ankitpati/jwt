@@ -24,6 +24,6 @@ public class SmileyApplet extends Applet{
     }
 };
 /*
-    <applet code="SmileyApplet" width="500" height="500"></applet>
+    <object code="SmileyApplet" width="500" height="500"></object>
 */
 /* end of SmileyApplet.java */

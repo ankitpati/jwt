@@ -16,11 +16,22 @@ public class SmileyApplet extends Applet{
 
     public void smiley(Graphics g)
     {
-        g.drawOval(200, 200, 100, 100);
-        g.drawOval(220, 220, 10, 10);
-        g.drawOval(270, 220, 10, 10);
-        g.drawArc(220, 250, 60, 30, 0, -180);
-        g.drawLine(250, 240, 250, 260);
+        int w, h;
+
+        w = getWidth();
+        h = getHeight();
+
+        setBackground(Color.blue);
+
+        g.setColor(Color.green);
+        g.fillOval(0, 0, w, h);
+
+        g.setColor(Color.red);
+        g.drawOval(10, 10, w - 20, h - 20);
+        g.drawOval(w/5, h/5, w/20, h/20);
+        g.drawOval(w - w/5 - w/20, h/5, w/20, h/20);
+        g.drawArc(w/5, h - h/3, w - w/5 - w/5, h/5, 0, -180);
+        g.drawLine(w/2, h/2 - h/20, w/2, h/2 + h/20);
     }
 };
 /*

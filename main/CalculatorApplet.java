@@ -21,6 +21,7 @@ public class CalculatorApplet extends JApplet {
                     break;
                 }
             }
+            SwingUtilities.updateComponentTreeUI(this);
         }
         catch (Exception ex) {
             System.err.println("Cannot set Nimbus theme.");
@@ -681,6 +682,6 @@ public class CalculatorApplet extends JApplet {
     private JTextField value;
 };
 /*
-    <object code="CalculatorApplet" width="205" height="215"></object>
+    <object code="CalculatorApplet" width="185" height="225"></object>
 */
 /* end of CalculatorApplet.java */

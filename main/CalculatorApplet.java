@@ -77,6 +77,7 @@ public class CalculatorApplet extends JApplet {
         div = new JButton();
         add = new JButton();
         operation = new JLabel();
+        plaf = new JComboBox<String>();
 
         eraseToLeft.setText("⌫");
         eraseToLeft.addActionListener(new ActionListener() {
@@ -341,6 +342,19 @@ public class CalculatorApplet extends JApplet {
 
         operation.setText("=");
 
+        plaf.setModel(new DefaultComboBoxModel<String>(new String[] { "Nimbus", "Metal", "CDE/Motif", "GTK+", "Windows" }));
+        plaf.setToolTipText("Look and Feel");
+        plaf.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent evt) {
+                plafItemStateChanged(evt);
+            }
+        });
+        plaf.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent evt) {
+                keyTypedHandler(evt);
+            }
+        });
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -348,55 +362,57 @@ public class CalculatorApplet extends JApplet {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(storedValue, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(operation, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(plaf, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(calculate)
+                            .addComponent(storedValue, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(clear, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(power)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(root))
-                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(value, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(eraseToLeft))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(num4)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num5)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num6))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(num7)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num8)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num9))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(num1)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num2)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num3))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(exponentConstant)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num0)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(decimalPoint)))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(add)
-                                .addComponent(sub)
-                                .addComponent(mul)
-                                .addComponent(div)))))
+                            .addComponent(operation, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(calculate)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clear, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(power)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(root))
+                            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(value, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(eraseToLeft))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(num4)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num5)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num6))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(num7)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num8)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num9))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(num1)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num2)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(exponentConstant)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(num0)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(decimalPoint)))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(add)
+                                    .addComponent(sub)
+                                    .addComponent(mul)
+                                    .addComponent(div))))))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -443,6 +459,8 @@ public class CalculatorApplet extends JApplet {
                     .addComponent(div)
                     .addComponent(decimalPoint)
                     .addComponent(exponentConstant))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(plaf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -626,6 +644,23 @@ public class CalculatorApplet extends JApplet {
         if("=".equals(command)) value.setText(String.valueOf(previousValue));
     }
 
+    private void plafItemStateChanged(ItemEvent evt) {
+        SwingUtilities.invokeLater(() -> {
+            try {
+                for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                    if (plaf.getSelectedItem().equals(info.getName())) {
+                        UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+                SwingUtilities.updateComponentTreeUI(this);
+            }
+            catch (Exception ex) {
+                System.err.println("Cannot set "+plaf.getSelectedItem()+" theme.");
+            }
+        });
+    }
+
     private JButton add;
     private JButton calculate;
     private JButton clear;
@@ -645,6 +680,7 @@ public class CalculatorApplet extends JApplet {
     private JButton num8;
     private JButton num9;
     private JLabel operation;
+    private JComboBox<String> plaf;
     private JButton power;
     private JButton root;
     private JLabel storedValue;
@@ -652,6 +688,6 @@ public class CalculatorApplet extends JApplet {
     private JTextField value;
 }
 /*
-    <object code="CalculatorApplet" width="185" height="225"></object>
+    <object code="CalculatorApplet" width="220" height="300"></object>
 */
 /* end of CalculatorApplet.java */

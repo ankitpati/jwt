@@ -6,11 +6,10 @@
 import java.awt.*;
 import java.awt.event.*;
 
-class MenuDemo extends Frame
-{
+class MenuDemo extends Frame implements ActionListener{
     final static long serialVersionUID = 0l;
-    Menu file, edit;
-    MenuItem open, save, cut, copy;
+    Menu file, edit, form, help;
+    MenuItem open, save, cut, copy, bold, ital, abt;
     MenuBar mbar;
     Label sltd;
 
@@ -18,12 +17,19 @@ class MenuDemo extends Frame
     {
         file = new Menu("File");
         edit = new Menu("Edit");
+        form = new Menu("Format");
+        help = new Menu("Help");
 
         open = new MenuItem("Open");
         save = new MenuItem("Save");
 
         cut  = new MenuItem("Cut");
         copy = new MenuItem("Copy");
+
+        bold = new MenuItem("Bold");
+        ital = new MenuItem("Italics");
+
+        abt  = new MenuItem("About");
 
         mbar = new MenuBar();
 
@@ -40,52 +46,40 @@ class MenuDemo extends Frame
             }
         );
 
-        open.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent evt)
-                {
-                    sltd.setText("Open Selected");
-                }
-            }
-        );
-
-        save.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent evt)
-                {
-                    sltd.setText("Save Selected");
-                }
-            }
-        );
-
-        cut.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent evt)
-                {
-                    sltd.setText("Cut Selected");
-                }
-            }
-        );
-
-        copy.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent evt)
-                {
-                    sltd.setText("Copy Selected");
-                }
-            }
-        );
+        open.addActionListener(this);
+        save.addActionListener(this);
+        cut .addActionListener(this);
+        copy.addActionListener(this);
+        bold.addActionListener(this);
+        ital.addActionListener(this);
+        abt .addActionListener(this);
 
         file.add(open);
         file.addSeparator();
         file.add(save);
 
-        edit.add(cut);
+        edit.add(cut );
         edit.add(copy);
+
+        form.add(bold);
+        form.add(ital);
+
+        help.add(abt );
 
         mbar.add(file);
         mbar.add(edit);
+        mbar.add(form);
+        mbar.add(help);
 
         setMenuBar(mbar);
         add(sltd);
 
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent evt)
+    {
+        sltd.setText(evt.getActionCommand() + " Selected");
     }
 
     public static void main(String[] args)

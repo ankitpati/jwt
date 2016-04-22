@@ -7,22 +7,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-class ProtectedFrame extends Frame{
-    final static long serialVersionUID = 0l;
-    Label privileged;
-
-    ProtectedFrame()
-    {
-        privileged = new Label("Privileged Access");
-
-        setSize(500, 500);
-        setLayout(new FlowLayout());
-
-        add(privileged);
-        setVisible(true);
-    }
-};
-
 public class DatabaseLogin extends Frame{
     final static long serialVersionUID = 0l;
     Label name, pass, status1, status2;
@@ -76,7 +60,6 @@ public class DatabaseLogin extends Frame{
                     }
                     catch(SQLException sqe){
                         System.err.println("Database Connection Failed!");
-                        sqe.printStackTrace();
                     }
                     finally{
                         password.setText("");

@@ -12,346 +12,227 @@ public class CalculatorApplet extends JApplet {
 
     public void init() {
         initComponents();
-
-        /* set Nimbus theme */
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-            SwingUtilities.updateComponentTreeUI(this);
-        }
-        catch (Exception ex) {
-            System.err.println("Cannot set Nimbus theme.");
-        }
-
-        /* setting and unsetting ENTER keybindings */
-        getRootPane().setDefaultButton(calculate);
-        add.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        clear.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        decimalPoint.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        div.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        eraseToLeft.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        exponentConstant.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        mul.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num0.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num1.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num2.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num3.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num4.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num5.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num6.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num7.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num8.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        num9.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        power.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        root.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
-        sub.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "none");
+        getRootPane().setDefaultButton(calculateButton);
+        SwingUtilities.invokeLater(() -> {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) themeComboBox.addItem(info.getName());
+            themeComboBox.setSelectedItem("Nimbus");
+        });
     }
 
     private void initComponents() {
+        storedValueLabel = new JLabel();
+        operationLabel = new JLabel();
+        valueField = new JTextField();
+        backspaceButton = new JButton();
+        num0Button = new JButton();
+        num1Button = new JButton();
+        num2Button = new JButton();
+        num3Button = new JButton();
+        num4Button = new JButton();
+        num5Button = new JButton();
+        num6Button = new JButton();
+        num7Button = new JButton();
+        num8Button = new JButton();
+        num9Button = new JButton();
+        decimalPointButton = new JButton();
+        exponentConstantButton = new JButton();
+        additionButton = new JButton();
+        subtractButton = new JButton();
+        multiplicationButton = new JButton();
+        divisionButton = new JButton();
+        powerButton = new JButton();
+        rootButton = new JButton();
+        calculateButton = new JButton();
+        clearButton = new JButton();
+        themeComboBox = new JComboBox<String>();
 
-        eraseToLeft = new JButton();
-        num5 = new JButton();
-        clear = new JButton();
-        num4 = new JButton();
-        sub = new JButton();
-        decimalPoint = new JButton();
-        num0 = new JButton();
-        calculate = new JButton();
-        num3 = new JButton();
-        num8 = new JButton();
-        num1 = new JButton();
-        value = new JTextField();
-        num9 = new JButton();
-        power = new JButton();
-        exponentConstant = new JButton();
-        num6 = new JButton();
-        num2 = new JButton();
-        root = new JButton();
-        storedValue = new JLabel();
-        mul = new JButton();
-        num7 = new JButton();
-        div = new JButton();
-        add = new JButton();
-        operation = new JLabel();
-        plaf = new JComboBox<String>();
+        storedValueLabel.setText("0.0");
 
-        eraseToLeft.setText("⌫");
-        eraseToLeft.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                eraseToLeftActionPerformed(evt);
-            }
-        });
-        eraseToLeft.addKeyListener(new KeyAdapter() {
+        operationLabel.setText("=");
+
+        valueField.setEditable(false);
+        valueField.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
+                valueFieldKeyTyped(evt);
+            }
+            public void keyPressed(KeyEvent evt) {
+                valueFieldKeyPressed(evt);
             }
         });
 
-        num5.setText("5");
-        num5.addActionListener(new ActionListener() {
+        backspaceButton.setText("⌫");
+        backspaceButton.setFocusable(false);
+        backspaceButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num5.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
+                backspaceButtonActionPerformed(evt);
             }
         });
 
-        clear.setText("c");
-        clear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                clearActionPerformed(evt);
-            }
-        });
-        clear.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num4.setText("4");
-        num4.addActionListener(new ActionListener() {
+        num0Button.setText("0");
+        num0Button.setFocusable(false);
+        num0Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 numActionPerformedHandler(evt);
             }
         });
-        num4.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
+
+        num1Button.setText("1");
+        num1Button.setFocusable(false);
+        num1Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
             }
         });
 
-        sub.setText("-");
-        sub.addActionListener(new ActionListener() {
+        num2Button.setText("2");
+        num2Button.setFocusable(false);
+        num2Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num3Button.setText("3");
+        num3Button.setFocusable(false);
+        num3Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num4Button.setText("4");
+        num4Button.setFocusable(false);
+        num4Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num5Button.setText("5");
+        num5Button.setFocusable(false);
+        num5Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num6Button.setText("6");
+        num6Button.setFocusable(false);
+        num6Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num7Button.setText("7");
+        num7Button.setFocusable(false);
+        num7Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num8Button.setText("8");
+        num8Button.setFocusable(false);
+        num8Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        num9Button.setText("9");
+        num9Button.setFocusable(false);
+        num9Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                numActionPerformedHandler(evt);
+            }
+        });
+
+        decimalPointButton.setText(".");
+        decimalPointButton.setFocusable(false);
+        decimalPointButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                decimalPointButtonActionPerformed(evt);
+            }
+        });
+
+        exponentConstantButton.setText("E");
+        exponentConstantButton.setFocusable(false);
+        exponentConstantButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                exponentConstantButtonActionPerformed(evt);
+            }
+        });
+
+        additionButton.setText("+");
+        additionButton.setFocusable(false);
+        additionButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        sub.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
 
-        decimalPoint.setText(".");
-        decimalPoint.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                decimalPointActionPerformed(evt);
-            }
-        });
-        decimalPoint.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num0.setText("0");
-        num0.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num0.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        calculate.setText("=");
-        calculate.addActionListener(new ActionListener() {
+        subtractButton.setText("-");
+        subtractButton.setFocusable(false);
+        subtractButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        calculate.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
 
-        num3.setText("3");
-        num3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num3.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num8.setText("8");
-        num8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num8.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num1.setText("1");
-        num1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num1.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        value.setEditable(false);
-        value.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num9.setText("9");
-        num9.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num9.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        power.setText("^");
-        power.addActionListener(new ActionListener() {
+        multiplicationButton.setText("✕");
+        multiplicationButton.setFocusable(false);
+        multiplicationButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        power.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
 
-        exponentConstant.setText("E");
-        exponentConstant.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                exponentConstantActionPerformed(evt);
-            }
-        });
-        exponentConstant.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num6.setText("6");
-        num6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num6.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        num2.setText("2");
-        num2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num2.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        root.setText("√");
-        root.addActionListener(new ActionListener() {
+        divisionButton.setText("/");
+        divisionButton.setFocusable(false);
+        divisionButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        root.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
 
-        storedValue.setText("0.0");
-
-        mul.setText("✕");
-        mul.addActionListener(new ActionListener() {
+        powerButton.setText("^");
+        powerButton.setFocusable(false);
+        powerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        mul.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
 
-        num7.setText("7");
-        num7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
-        num7.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
-
-        div.setText("/");
-        div.addActionListener(new ActionListener() {
+        rootButton.setText("√");
+        rootButton.setFocusable(false);
+        rootButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        div.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
-            }
-        });
 
-        add.setText("+");
-        add.addActionListener(new ActionListener() {
+        calculateButton.setText("=");
+        calculateButton.setFocusable(false);
+        calculateButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 calculationActionPerformedHandler(evt);
             }
         });
-        add.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
+
+        clearButton.setText("c");
+        clearButton.setFocusable(false);
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                clearButtonActionPerformed(evt);
             }
         });
 
-        operation.setText("=");
-
-        plaf.setModel(new DefaultComboBoxModel<String>(new String[] { "Nimbus", "Metal", "CDE/Motif", "GTK+", "Windows" }));
-        plaf.setToolTipText("Look and Feel");
-        plaf.addItemListener(new ItemListener() {
+        themeComboBox.setToolTipText("Look and Feel");
+        themeComboBox.setFocusable(false);
+        themeComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent evt) {
-                plafItemStateChanged(evt);
-            }
-        });
-        plaf.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                keyTypedHandler(evt);
+                themeComboBoxItemStateChanged(evt);
             }
         });
 
@@ -362,266 +243,191 @@ public class CalculatorApplet extends JApplet {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(plaf, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(themeComboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(storedValueLabel, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(operationLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(storedValue, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calculateButton)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(operation, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(calculate)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clear, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(power)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(root))
-                            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(value, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(eraseToLeft))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(num4)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num5)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(num7)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num8)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num9))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(num1)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num2)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num3))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(exponentConstant)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(num0)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(decimalPoint)))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(add)
-                                    .addComponent(sub)
-                                    .addComponent(mul)
-                                    .addComponent(div))))))
+                            .addComponent(clearButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(powerButton)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(rootButton))
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(valueField, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(backspaceButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(num4Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num5Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num6Button))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(num7Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num8Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num9Button))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(num1Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num2Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num3Button))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(exponentConstantButton)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(num0Button)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(decimalPointButton)))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(additionButton)
+                                .addComponent(subtractButton)
+                                .addComponent(multiplicationButton)
+                                .addComponent(divisionButton)))))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(SwingConstants.HORIZONTAL, new Component[] {add, calculate, clear, decimalPoint, div, exponentConstant, mul, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, power, root, sub});
+        layout.linkSize(SwingConstants.HORIZONTAL, new Component[] {additionButton, calculateButton, clearButton, decimalPointButton, divisionButton, exponentConstantButton, multiplicationButton, num0Button, num1Button, num2Button, num3Button, num4Button, num5Button, num6Button, num7Button, num8Button, num9Button, powerButton, rootButton, subtractButton});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(operation)
-                    .addComponent(storedValue))
+                    .addComponent(operationLabel)
+                    .addComponent(storedValueLabel))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(value, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eraseToLeft))
+                    .addComponent(valueField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backspaceButton))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(calculate)
-                    .addComponent(power)
-                    .addComponent(root)
-                    .addComponent(clear))
+                    .addComponent(calculateButton)
+                    .addComponent(powerButton)
+                    .addComponent(rootButton)
+                    .addComponent(clearButton))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num1)
-                    .addComponent(num2)
-                    .addComponent(num3)
-                    .addComponent(add))
+                    .addComponent(num1Button)
+                    .addComponent(num2Button)
+                    .addComponent(num3Button)
+                    .addComponent(additionButton))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num4)
-                    .addComponent(num5)
-                    .addComponent(num6)
-                    .addComponent(sub))
+                    .addComponent(num4Button)
+                    .addComponent(num5Button)
+                    .addComponent(num6Button)
+                    .addComponent(subtractButton))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num7)
-                    .addComponent(num8)
-                    .addComponent(num9)
-                    .addComponent(mul))
+                    .addComponent(num7Button)
+                    .addComponent(num8Button)
+                    .addComponent(num9Button)
+                    .addComponent(multiplicationButton))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num0)
-                    .addComponent(div)
-                    .addComponent(decimalPoint)
-                    .addComponent(exponentConstant))
+                    .addComponent(num0Button)
+                    .addComponent(divisionButton)
+                    .addComponent(decimalPointButton)
+                    .addComponent(exponentConstantButton))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(plaf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(themeComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(SwingConstants.VERTICAL, new Component[] {add, calculate, clear, decimalPoint, div, exponentConstant, mul, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, power, root, sub, value});
+        layout.linkSize(SwingConstants.VERTICAL, new Component[] {additionButton, calculateButton, clearButton, decimalPointButton, divisionButton, exponentConstantButton, multiplicationButton, num0Button, num1Button, num2Button, num3Button, num4Button, num5Button, num6Button, num7Button, num8Button, num9Button, powerButton, rootButton, subtractButton, valueField});
     }
 
-    private void clearActionPerformed(ActionEvent evt) {
-        value.setText("");
-        storedValue.setText("0.0");
-        operation.setText("=");
+    private void clearButtonActionPerformed(ActionEvent evt) {
+        valueField.setText("");
+        storedValueLabel.setText("0.0");
+        operationLabel.setText("=");
     }
 
-    private void decimalPointActionPerformed(ActionEvent evt) {
+    private void decimalPointButtonActionPerformed(ActionEvent evt) {
         int i;
         String orig;
 
-        orig = value.getText();
+        orig = valueField.getText();
 
-        if(orig.contains(".") || orig.contains("E")) return;
-        if(orig.contains("I") || orig.contains("N")) value.setText(orig = "");
+        if (orig.contains(".") || orig.contains("E")) return;
+        if (orig.contains("I") || orig.contains("N")) valueField.setText(orig = "");
         /* Checking for these letters because
             E = Exponent
             I = Infinity
             N = NaN
         */
 
-        value.setText(orig + '.');
+        valueField.setText(orig + '.');
     }
 
-    private void keyTypedHandler(KeyEvent evt) {
-        switch(evt.getKeyChar()){
-        case '1':
-            num1.doClick();
-            break;
-        case '2':
-            num2.doClick();
-            break;
-        case '3':
-            num3.doClick();
-            break;
-        case '4':
-            num4.doClick();
-            break;
-        case '5':
-            num5.doClick();
-            break;
-        case '6':
-            num6.doClick();
-            break;
-        case '7':
-            num8.doClick();
-            break;
-        case '8':
-            num8.doClick();
-            break;
-        case '9':
-            num9.doClick();
-            break;
-        case '0':
-            num0.doClick();
-            break;
-        case '.':
-            decimalPoint.doClick();
-            break;
-        case 'e':   /* intended fall-through */
-        case 'E':
-            exponentConstant.doClick();
-            break;
-        case '=':
-            calculate.doClick();
-            break;
-        case '\b':
-            eraseToLeft.doClick();
-            break;
-        case 'c':   /* intended fall-through */
-        case 'C':
-            clear.doClick();
-            break;
-        case '+':
-            add.doClick();
-            break;
-        case '-':
-            sub.doClick();
-            break;
-        case '*':   /* intended fall-through */
-        case 'x':
-        case 'X':
-            mul.doClick();
-            break;
-        case '/':
-            div.doClick();
-            break;
-        case '^':
-            power.doClick();
-            break;
-        case 'r':
-            root.doClick();
-            break;
-        default:
-            break;
-        }
-    }
-
-    private void eraseToLeftActionPerformed(ActionEvent evt) {
+    private void backspaceButtonActionPerformed(ActionEvent evt) {
         String orig;
-        orig = value.getText();
-        if(orig.length() == 0) return;
-        value.setText(orig.substring(0, orig.length() - 1));
+        orig = valueField.getText();
+        if (orig.length() == 0) return;
+        valueField.setText(orig.substring(0, orig.length() - 1));
     }
 
-    private void exponentConstantActionPerformed(ActionEvent evt) {
+    private void exponentConstantButtonActionPerformed(ActionEvent evt) {
         int i;
         String orig;
-        orig = value.getText();
-        if("".equals(orig) || "-".equals(orig) || orig.contains("I") || orig.contains("N")) return;
-        if(!orig.contains("E")) value.setText(orig + 'E');
+        orig = valueField.getText();
+        if ("".equals(orig) || "-".equals(orig) || orig.contains("I") || orig.contains("N")) return;
+        if (!orig.contains("E")) valueField.setText(orig + 'E');
     }
 
     private void numActionPerformedHandler(ActionEvent evt) {
-        if(value.getText().contains("I") || value.getText().contains("N")) value.setText("");
-        value.setText(value.getText() + evt.getActionCommand());
+        if (valueField.getText().contains("I") || valueField.getText().contains("N")) valueField.setText("");
+        valueField.setText(valueField.getText() + evt.getActionCommand());
     }
 
     private void calculationActionPerformedHandler(ActionEvent evt) {
         double previousValue, currentValue;
         String orig, command, previousCommand;
 
-        orig = value.getText();
+        orig = valueField.getText();
         command = evt.getActionCommand();
-        previousCommand = operation.getText();
+        previousCommand = operationLabel.getText();
 
-        if("".equals(orig) || orig.charAt(orig.length() - 1) == 'E'){
-            if("-".equals(command)) value.setText(orig + '-');
-            else if(!"=".equals(command)) operation.setText(command);
+        if ("".equals(orig) || orig.charAt(orig.length() - 1) == 'E') {
+            if ("-".equals(command)) valueField.setText(orig + '-');
+            else if (!"=".equals(command)) operationLabel.setText(command);
             return;
         }
 
-        if(orig.charAt(orig.length() - 1) == '-'){
-            if(!"=".equals(command)) operation.setText(command);
+        if (orig.charAt(orig.length() - 1) == '-') {
+            if (!"=".equals(command)) operationLabel.setText(command);
             return;
         }
 
-        try{
-            previousValue = Double.parseDouble(storedValue.getText());
+        try {
+            previousValue = Double.parseDouble(storedValueLabel.getText());
             currentValue = Double.parseDouble(orig);
         }
-        catch(NumberFormatException nfe){
+        catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this, "Invalid Number!\nPress C to clear the input.");
             return;
         }
 
-        value.setText("");
+        valueField.setText("");
 
-        switch(previousCommand){
+        switch (previousCommand) {
         case "+":
             previousValue += currentValue;
             break;
         case "-":
             previousValue -= currentValue;
             break;
-        case "\u2715":
+        case "✕":
             previousValue *= currentValue;
             break;
         case "/":
@@ -630,7 +436,7 @@ public class CalculatorApplet extends JApplet {
         case "^":
             previousValue = Math.pow(previousValue, currentValue);
             break;
-        case "\u221a":
+        case "√":
             previousValue = Math.pow(currentValue, 1.0 / previousValue);
             break;
         case "=":
@@ -638,54 +444,140 @@ public class CalculatorApplet extends JApplet {
             break;
         }
 
-        operation.setText(command);
-        storedValue.setText(String.valueOf(previousValue));
+        operationLabel.setText(command);
+        storedValueLabel.setText(String.valueOf(previousValue));
 
-        if("=".equals(command)) value.setText(String.valueOf(previousValue));
+        if ("=".equals(command)) valueField.setText(String.valueOf(previousValue));
     }
 
-    private void plafItemStateChanged(ItemEvent evt) {
+    private void themeComboBoxItemStateChanged(ItemEvent evt) {
         SwingUtilities.invokeLater(() -> {
             try {
-                for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                    if (plaf.getSelectedItem().equals(info.getName())) {
+                for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
+                    if (themeComboBox.getSelectedItem().equals(info.getName())) {
                         UIManager.setLookAndFeel(info.getClassName());
                         break;
                     }
-                }
                 SwingUtilities.updateComponentTreeUI(this);
             }
             catch (Exception ex) {
-                System.err.println("Cannot set "+plaf.getSelectedItem()+" theme.");
+                System.err.println("Cannot set "+themeComboBox.getSelectedItem()+" theme.");
             }
         });
     }
 
-    private JButton add;
-    private JButton calculate;
-    private JButton clear;
-    private JButton decimalPoint;
-    private JButton div;
-    private JButton eraseToLeft;
-    private JButton exponentConstant;
-    private JButton mul;
-    private JButton num0;
-    private JButton num1;
-    private JButton num2;
-    private JButton num3;
-    private JButton num4;
-    private JButton num5;
-    private JButton num6;
-    private JButton num7;
-    private JButton num8;
-    private JButton num9;
-    private JLabel operation;
-    private JComboBox<String> plaf;
-    private JButton power;
-    private JButton root;
-    private JLabel storedValue;
-    private JButton sub;
-    private JTextField value;
+    private void valueFieldKeyTyped(KeyEvent evt) {
+        switch (evt.getKeyChar()) {
+        case '1':
+            num1Button.doClick();
+            break;
+        case '2':
+            num2Button.doClick();
+            break;
+        case '3':
+            num3Button.doClick();
+            break;
+        case '4':
+            num4Button.doClick();
+            break;
+        case '5':
+            num5Button.doClick();
+            break;
+        case '6':
+            num6Button.doClick();
+            break;
+        case '7':
+            num8Button.doClick();
+            break;
+        case '8':
+            num8Button.doClick();
+            break;
+        case '9':
+            num9Button.doClick();
+            break;
+        case '0':
+            num0Button.doClick();
+            break;
+        case '.':
+            decimalPointButton.doClick();
+            break;
+        case 'e':   /* intended fall-through */
+        case 'E':
+            exponentConstantButton.doClick();
+            break;
+        case '=':
+            calculateButton.doClick();
+            break;
+        case '\b':
+            backspaceButton.doClick();
+            break;
+        case 'c':   /* intended fall-through */
+        case 'C':
+            clearButton.doClick();
+            break;
+        case '+':
+            additionButton.doClick();
+            break;
+        case '-':
+            subtractButton.doClick();
+            break;
+        case '*':   /* intended fall-through */
+        case 'x':
+        case 'X':
+            multiplicationButton.doClick();
+            break;
+        case '/':
+            divisionButton.doClick();
+            break;
+        case '^':
+            powerButton.doClick();
+            break;
+        case 'r':
+            rootButton.doClick();
+            break;
+        default:
+            break;
+        }
+    }
+
+    private void valueFieldKeyPressed(KeyEvent evt) {
+        switch (evt.getKeyCode()) {
+        case KeyEvent.VK_UP:
+            themeComboBox.setSelectedIndex((themeComboBox.getSelectedIndex() == 0 ? themeComboBox.getItemCount() : themeComboBox.getSelectedIndex()) - 1);
+            break;
+        case KeyEvent.VK_DOWN:
+            themeComboBox.setSelectedIndex(themeComboBox.getSelectedIndex() == themeComboBox.getItemCount() - 1 ? 0 : themeComboBox.getSelectedIndex() + 1);
+            break;
+        default:
+            break;
+        }
+    }
+
+    private JButton additionButton;
+    private JButton backspaceButton;
+    private JButton calculateButton;
+    private JButton clearButton;
+    private JButton decimalPointButton;
+    private JButton divisionButton;
+    private JButton exponentConstantButton;
+    private JButton multiplicationButton;
+    private JButton num0Button;
+    private JButton num1Button;
+    private JButton num2Button;
+    private JButton num3Button;
+    private JButton num4Button;
+    private JButton num5Button;
+    private JButton num6Button;
+    private JButton num7Button;
+    private JButton num8Button;
+    private JButton num9Button;
+    private JLabel operationLabel;
+    private JButton powerButton;
+    private JButton rootButton;
+    private JLabel storedValueLabel;
+    private JButton subtractButton;
+    private JComboBox<String> themeComboBox;
+    private JTextField valueField;
 }
 /*
     <object code="CalculatorApplet" width="220" height="300"></object>

@@ -578,7 +578,7 @@ public class CalculatorApplet extends JApplet {
     private JButton subtractButton;
     private JComboBox<String> themeComboBox;
     private JTextField valueField;
-}
+};
 /*
     <object code="CalculatorApplet" width="220" height="300"></object>
 */

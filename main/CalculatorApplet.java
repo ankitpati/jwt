@@ -551,6 +551,23 @@ public class CalculatorApplet extends JApplet {
         }
     }
 
+    public static void main(String args[])
+    {
+        JFrame calculatorFrame;
+        JApplet calculatorApplet;
+
+        calculatorApplet = new CalculatorApplet();
+        calculatorApplet.init();
+
+        calculatorFrame = new JFrame("Calculator");
+        calculatorFrame.setSize(220, 300);
+        calculatorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        calculatorFrame.setResizable(false);
+        calculatorFrame.add(calculatorApplet);
+
+        calculatorFrame.setVisible(true);
+    }
+
     private JButton additionButton;
     private JButton backspaceButton;
     private JButton calculateButton;

@@ -38,8 +38,7 @@ public class BorderDirections extends Frame{
 
     public static void main(String args[])
     {
-        BorderDirections bd;
-        bd = new BorderDirections();
+        new BorderDirections();
         return;
     }
 };

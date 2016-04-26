@@ -21,9 +21,9 @@ public class SmileyApplet extends Applet{
         w = getWidth();
         h = getHeight();
 
-        setBackground(Color.blue);
+        setBackground(Color.BLUE);
 
-        g.setColor(Color.green);
+        g.setColor(Color.GREEN);
         g.fillOval(0, 0, w, h);
 
         g.setColor(Color.red);

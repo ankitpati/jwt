@@ -84,9 +84,8 @@ class MenuDemo extends Frame implements ActionListener{
 
     public static void main(String[] args)
     {
-       MenuDemo md;
-       md = new MenuDemo();
-       return;
+        new MenuDemo();
+        return;
     }
 };
 /* end of MenuDemo.java */

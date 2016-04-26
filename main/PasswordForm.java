@@ -103,8 +103,7 @@ public class PasswordForm extends Frame{
 
     public static void main(String args[])
     {
-        PasswordForm bd;
-        bd = new PasswordForm();
+        new PasswordForm();
         return;
     }
 };

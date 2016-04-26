@@ -18,40 +18,58 @@ public class GridBagLayoutDemo extends JFrame{
         setVisible(true);
     }
 
-    public static void main(String[] args)
-    {
-        GridBagLayoutDemo m = new GridBagLayoutDemo();
-    }
-
     public void prepareGUI()
     {
-        Container pane = getContentPane();
+        Container pane;
+        JLabel uname;
+        JTextField un;
+        JLabel pass;
+        JPasswordField password;
+        JButton ok;
+        JButton clr;
+
+        GridBagConstraints c;
+
+        uname = new JLabel("User Name");
+        un = new JTextField();
+        pass = new JLabel("Password");
+        password = new JPasswordField();
+        ok = new JButton("Login");
+        clr = new JButton("Reset");
+
+        c = new GridBagConstraints();
+
+        pane = getContentPane();
+
         pane.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill=GridBagConstraints.BOTH;
-        c.weightx = 1.0;
-        c.weighty = 1.0;
-        JLabel uname = new JLabel("User Name");
+
+        c.fill = GridBagConstraints.BOTH;
+
         pane.add(uname, c);
-        JTextField un = new JTextField();
+
         c.gridx = 1;
         pane.add(un, c);
-        JLabel pass = new JLabel("Password");
+
         c.gridx = 0;
         c.gridy = 1;
         pane.add(pass, c);
-        JPasswordField password = new JPasswordField();
+
         c.gridx = 1;
         c.gridy = 1;
         pane.add(password, c);
-        JButton ok = new JButton("Login");
+
         c.gridx = 0;
         c.gridy = 2;
         pane.add(ok, c);
-        JButton clr = new JButton("Reset");
+
         c.gridx = 1;
         c.gridy = 2;
         pane.add(clr, c);
+    }
+
+    public static void main(String[] args)
+    {
+        new GridBagLayoutDemo();
     }
 };
 /* end of GridBagLayoutDemo.java */

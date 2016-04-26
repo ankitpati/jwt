@@ -82,8 +82,7 @@ public class DatabaseLogin extends Frame{
 
     public static void main(String args[])
     {
-        DatabaseLogin bd;
-        bd = new DatabaseLogin();
+        new DatabaseLogin();
         return;
     }
 };

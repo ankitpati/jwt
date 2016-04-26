@@ -66,8 +66,7 @@ public class LanguageList extends Frame{
 
     public static void main(String args[])
     {
-        LanguageList ll;
-        ll = new LanguageList();
+        new LanguageList();
         return;
     }
 };

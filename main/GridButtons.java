@@ -38,8 +38,7 @@ public class GridButtons extends Frame{
 
     public static void main(String args[])
     {
-        GridButtons bd;
-        bd = new GridButtons();
+        new GridButtons();
         return;
     }
 };

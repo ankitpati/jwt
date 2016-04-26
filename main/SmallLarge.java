@@ -60,9 +60,7 @@ public class SmallLarge extends Frame{
 
     public static void main(String args[])
     {
-        SmallLarge sl;
-        sl = new SmallLarge();
-        return;
+        new SmallLarge();
     }
 };
 /* end of SmallLarge.java */

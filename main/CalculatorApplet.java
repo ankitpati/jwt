@@ -354,7 +354,6 @@ public class CalculatorApplet extends JApplet {
     }
 
     private void decimalPointButtonActionPerformed(ActionEvent evt) {
-        int i;
         String orig;
 
         orig = valueField.getText();
@@ -378,7 +377,6 @@ public class CalculatorApplet extends JApplet {
     }
 
     private void exponentConstantButtonActionPerformed(ActionEvent evt) {
-        int i;
         String orig;
         orig = valueField.getText();
         if ("".equals(orig) || "-".equals(orig) || orig.contains("I") || orig.contains("N")) return;

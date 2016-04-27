@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 
 class arrayRecursion{
@@ -13,10 +12,7 @@ class arrayRecursion{
                                                        a[i] : maxCore(a, i + 1);
     }
 
-    public static int max(int a[])
-    {
-        return maxCore(a, 0);
-    }
+    public static int max(int a[]) { return maxCore(a, 0); }
 
     public static int minCore(int a[], int i)
     {
@@ -24,10 +20,7 @@ class arrayRecursion{
                                                        a[i] : minCore(a, i + 1);
     }
 
-    public static int min(int a[])
-    {
-        return minCore(a, 0);
-    }
+    public static int min(int a[]) { return minCore(a, 0); }
 
     public static void main(String args[])
     {

@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 import in.edu.sitpune.ankitpati.login.LoginException;
 

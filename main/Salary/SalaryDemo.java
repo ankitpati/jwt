@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 import in.edu.sitpune.ankitpati.salary.NSal;
 import in.edu.sitpune.ankitpati.salary.PSal;

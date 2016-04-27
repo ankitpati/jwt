@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.io.*;
 import java.util.StringTokenizer;
 

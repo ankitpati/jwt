@@ -3,8 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
-
 class MinorException extends Exception{
     final static long serialVersionUID = 0;
 

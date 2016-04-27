@@ -3,8 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
-
 class pattern{
     public static void main(String args[])
     {

@@ -20,9 +20,10 @@ class QuadraticRoot{
         b = sc.nextDouble();
         c = sc.nextDouble();
 
-        c = b*b - 4*a*c;
-        b = -b / (2.0*a);
-        c = (sig = c < 0) ? Math.sqrt(-c) / (2*a) : Math.sqrt(c) / (2*a);
+        c = b * b - 4.0 * a * c;
+        a = 2.0 * a;
+        b = -b / a;
+        c = Math.sqrt((sig = c < 0.0) ? -c : c) / a;
         if(sig) System.out.printf("x = %f + %fi, %f - %fi\n", b, c, b, c);
         else    System.out.printf("x = %f, %f\n", b + c, b - c);
     }

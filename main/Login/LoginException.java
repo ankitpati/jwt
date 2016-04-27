@@ -5,8 +5,6 @@
 
 package in.edu.sitpune.ankitpati.login;
 
-import java.lang.*;
-
 public class LoginException extends Exception{
     final static long serialVersionUID = 0l;
 

@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import in.edu.sitpune.ankitpati.transaction.Transaction;
 import in.edu.sitpune.ankitpati.account.Account;
 

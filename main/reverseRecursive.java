@@ -3,13 +3,12 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.*;
 
 class reverseRecursive{
-    public static char revcore(char str[], int i, int j)[]
+    public static byte revcore(byte str[], int i, int j)[]
     {
-        char temp;
+        byte temp;
 
         if(i >= j) return str;
 
@@ -22,19 +21,7 @@ class reverseRecursive{
 
     public static String recrev(String str)
     {
-        int i;
-        char cstr[];
-        String ret;
-
-        cstr = new char[str.length()];
-
-        for(i = 0; i < str.length(); ++i) cstr[i] = str.charAt(i);
-
-        cstr = revcore(cstr, 0, cstr.length - 1);
-
-        for(i = 0, ret = ""; i < cstr.length; ++i) ret += cstr[i];
-
-        return ret;
+        return new String(revcore(str.getBytes(), 0, str.length() - 1));
     }
 
     public static void main(String args[])

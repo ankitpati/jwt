@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 
 class stringOperations{
@@ -38,7 +37,8 @@ class stringOperations{
 
         try{
             while(str.charAt(i) == str.charAt(i)) ++i;
-        } catch(StringIndexOutOfBoundsException sie){
+        }
+        catch(StringIndexOutOfBoundsException sie){
         }
 
         return i;
@@ -74,7 +74,7 @@ class stringOperations{
                 return (int) str1.charAt(i) - (int) str2.charAt(i);
 
         return (int) (i == str1.length() ? 0 : str1.charAt(i)) -
-               (int) (i == str2.length() ? 0 : str2.charAt(i));
+               (int) (i == str2.length() ? 0 : str2.charAt(i)) ;
     }
 
     public static int strstr(String haystack, String needle)

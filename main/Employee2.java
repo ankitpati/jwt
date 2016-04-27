@@ -3,8 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
-
 abstract class Employee2{
     int id;
     String name, address, department;

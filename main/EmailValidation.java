@@ -3,9 +3,7 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 class InvalidEmailException extends Exception{
     final static long serialVersionUID = 0;
@@ -20,12 +18,8 @@ class EmailValidation{
     public static void main(String args[]) throws InvalidEmailException
     {
         System.out.printf("Enter an email address:\n");
-        if(
-            Pattern.matches(
-                "[a-zA-Z0-9][\\w.]*@[a-zA-Z0-9][\\w.]+\\.[a-zA-Z0-9]\\w+"
-                , new Scanner(System.in).nextLine()
-            )
-        )
+        if(new Scanner(System.in).nextLine().matches(
+                     "[a-zA-Z0-9][\\w.]*@[a-zA-Z0-9][\\w.]+\\.[a-zA-Z0-9]\\w+"))
             System.out.printf("Email is valid.\n");
         else
             throw new InvalidEmailException("Email is invalid.");

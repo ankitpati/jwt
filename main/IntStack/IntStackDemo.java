@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 import in.edu.sitpune.ankitpati.intstack.IntStack;
 import in.edu.sitpune.ankitpati.intstack.EmptyException;

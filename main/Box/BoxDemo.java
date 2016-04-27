@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import in.edu.sitpune.ankitpati.box.Box;
 
 class BoxDemo{

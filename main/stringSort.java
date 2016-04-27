@@ -3,18 +3,15 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 
 class stringSort{
     public static String sort(String str)
     {
         int i, j, small;
-        char srt[], tmp;
+        byte srt[], tmp;
 
-        srt = new char[str.length()];
-
-        for(i = 0; i < str.length(); ++i) srt[i] = str.charAt(i);
+        srt = str.getBytes();
 
         for(i = 0; i < srt.length; ++i){
             small = i;
@@ -26,9 +23,7 @@ class stringSort{
             srt[small] = tmp;
         }
 
-        for(i = 0, str = ""; i < srt.length; ++i) str += srt[i];
-
-        return str;
+        return new String(srt);
     }
 
     public static void main(String args[])

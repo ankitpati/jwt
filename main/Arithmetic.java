@@ -3,7 +3,6 @@
  * Author: Ankit Pati
  */
 
-import java.lang.*;
 import java.util.Scanner;
 
 interface ArithOps{
@@ -14,25 +13,10 @@ interface ArithOps{
 };
 
 class Arithmetic implements ArithOps{
-    public double add(double a, double b)
-    {
-        return a + b;
-    }
-
-    public double sub(double a, double b)
-    {
-        return a - b;
-    }
-
-    public double mul(double a, double b)
-    {
-        return a * b;
-    }
-
-    public double div(double a, double b)
-    {
-        return a / b;
-    }
+    public double add(double a, double b) { return a + b; }
+    public double sub(double a, double b) { return a - b; }
+    public double mul(double a, double b) { return a * b; }
+    public double div(double a, double b) { return a / b; }
 
     public static void main(String args[])
     {

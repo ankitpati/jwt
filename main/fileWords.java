@@ -11,7 +11,7 @@ class fileWords{
     {
         int read, i;
         String filename, word;
-        List<String> wordList;
+        ArrayList<String> wordList;
         FileReader fr;
 
         System.out.printf("Filename?\n");

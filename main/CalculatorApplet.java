@@ -553,19 +553,7 @@ public class CalculatorApplet extends JApplet {
 
     public static void main(String args[])
     {
-        JFrame calculatorFrame;
-        JApplet calculatorApplet;
-
-        calculatorApplet = new CalculatorApplet();
-        calculatorApplet.init();
-
-        calculatorFrame = new JFrame("Calculator");
-        calculatorFrame.setSize(220, 300);
-        calculatorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        calculatorFrame.setResizable(false);
-        calculatorFrame.add(calculatorApplet);
-
-        calculatorFrame.setVisible(true);
+        new CalculatorFrame();
     }
 
     private JButton additionButton;
@@ -593,6 +581,30 @@ public class CalculatorApplet extends JApplet {
     private JButton subtractButton;
     private JComboBox<String> themeComboBox;
     private JTextField valueField;
+};
+
+class CalculatorFrame extends JFrame {
+    final static long serialVersionUID = 0l;
+
+    CalculatorFrame() {
+        initComponents();
+    }
+
+    private void initComponents() {
+        calculatorApplet = new CalculatorApplet();
+        calculatorApplet.init();
+
+        setTitle("Calculator");
+        setSize(220, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        add(calculatorApplet);
+
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    private JApplet calculatorApplet;
 };
 /*
     <object code="CalculatorApplet" width="220" height="300"></object>

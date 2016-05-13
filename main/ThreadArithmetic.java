@@ -50,11 +50,8 @@ public class ThreadArithmetic extends Thread{
 
     public static void main(String args[])
     {
-        Thread add;
-        Thread mul;
-
-        add = new ThreadArithmetic("addition");
-        mul = new ThreadArithmetic("multiplication");
+        new ThreadArithmetic("addition");
+        new ThreadArithmetic("multiplication");
 
         return;
     }

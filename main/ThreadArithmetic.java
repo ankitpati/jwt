@@ -10,7 +10,7 @@ public class ThreadArithmetic extends Thread{
 
     ThreadArithmetic(String operation)
     {
-        setName(operation);
+        super(operation);
         start();
     }
 

@@ -16,28 +16,29 @@ public class CalculatorApplet extends JApplet {
         getRootPane().setDefaultButton(calculateButton);
 
         SwingUtilities.invokeLater(() -> {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) themeComboBox.addItem(info.getName());
+            for (
+                UIManager.LookAndFeelInfo info :
+                UIManager.getInstalledLookAndFeels()
+            ) themeComboBox.addItem(info.getName());
             themeComboBox.setSelectedItem("Nimbus");
         });
     }
 
-    private GridBagConstraints initGridBagConstraints(int gridwidth)
+    private GridBagConstraints initComponentLayout(Component com, int gridwidth)
     {
         GridBagConstraints gbc;
 
         gbc = new GridBagConstraints();
         gbc.gridx = GridBagConstraints.RELATIVE;
         gbc.gridy = GridBagConstraints.RELATIVE;
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.gridwidth = gridwidth;
         gbc.ipadx = gbc.gridwidth * 50;
 
-        return gbc;
-    }
+        com.setMinimumSize(new Dimension(0, 27));
 
-    private GridBagConstraints initGridBagConstraints()
-    {
-        return initGridBagConstraints(1);
+        return gbc;
     }
 
     private void initComponents() {
@@ -261,112 +262,87 @@ public class CalculatorApplet extends JApplet {
 
         setLayout(new GridBagLayout());
 
-        gbc = initGridBagConstraints(3);
-        storedValueLabel.setMinimumSize(new Dimension(0, 15));
+        gbc = initComponentLayout(storedValueLabel, 3);
         add(storedValueLabel, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(operationLabel, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        storedValueLabel.setMinimumSize(new Dimension(0, 15));
         add(operationLabel, gbc);
 
-        gbc = initGridBagConstraints(3);
-        storedValueLabel.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(valueField, 3);
         add(valueField, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(backspaceButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        backspaceButton.setMinimumSize(new Dimension(0, 27));
         add(backspaceButton, gbc);
 
-        gbc = initGridBagConstraints();
-        calculateButton.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(calculateButton, 1);
         add(calculateButton, gbc);
 
-        gbc = initGridBagConstraints();
-        clearButton.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(clearButton, 1);
         add(clearButton, gbc);
 
-        gbc = initGridBagConstraints();
-        powerButton.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(powerButton, 1);
         add(powerButton, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(rootButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        rootButton.setMinimumSize(new Dimension(0, 27));
         add(rootButton, gbc);
 
-        gbc = initGridBagConstraints();
-        num1Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num1Button, 1);
         add(num1Button, gbc);
 
-        gbc = initGridBagConstraints();
-        num2Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num2Button, 1);
         add(num2Button, gbc);
 
-        gbc = initGridBagConstraints();
-        num3Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num3Button, 1);
         add(num3Button, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(additionButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        additionButton.setMinimumSize(new Dimension(0, 27));
         add(additionButton, gbc);
 
-        gbc = initGridBagConstraints();
-        num4Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num4Button, 1);
         add(num4Button, gbc);
 
-        gbc = initGridBagConstraints();
-        num5Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num5Button, 1);
         add(num5Button, gbc);
 
-        gbc = initGridBagConstraints();
-        num6Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num6Button, 1);
         add(num6Button, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(subtractButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        subtractButton.setMinimumSize(new Dimension(0, 27));
         add(subtractButton, gbc);
 
-        gbc = initGridBagConstraints();
-        num7Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num7Button, 1);
         add(num7Button, gbc);
 
-        gbc = initGridBagConstraints();
-        num8Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num8Button, 1);
         add(num8Button, gbc);
 
-        gbc = initGridBagConstraints();
-        num9Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num9Button, 1);
         add(num9Button, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(multiplicationButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        multiplicationButton.setMinimumSize(new Dimension(0, 27));
         add(multiplicationButton, gbc);
 
-        gbc = initGridBagConstraints();
-        exponentConstantButton.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(exponentConstantButton, 1);
         add(exponentConstantButton, gbc);
 
-        gbc = initGridBagConstraints();
-        num0Button.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(num0Button, 1);
         add(num0Button, gbc);
 
-        gbc = initGridBagConstraints();
-        decimalPointButton.setMinimumSize(new Dimension(0, 27));
+        gbc = initComponentLayout(decimalPointButton, 1);
         add(decimalPointButton, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(divisionButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        divisionButton.setMinimumSize(new Dimension(0, 27));
         add(divisionButton, gbc);
 
-        gbc = initGridBagConstraints();
+        gbc = initComponentLayout(themeComboBox, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
         add(themeComboBox, gbc);
     }
 
@@ -382,7 +358,8 @@ public class CalculatorApplet extends JApplet {
         orig = valueField.getText();
 
         if (orig.contains(".") || orig.contains("E")) return;
-        if (orig.contains("I") || orig.contains("N")) valueField.setText(orig = "");
+        if (orig.contains("I") || orig.contains("N"))
+            valueField.setText(orig = "");
         /* Checking for these letters because
             E = Exponent
             I = Infinity
@@ -402,12 +379,14 @@ public class CalculatorApplet extends JApplet {
     private void exponentConstantButtonActionPerformed(ActionEvent evt) {
         String orig;
         orig = valueField.getText();
-        if ("".equals(orig) || "-".equals(orig) || orig.contains("I") || orig.contains("N")) return;
+        if ("".equals(orig) || "-".equals(orig) ||
+                               orig.contains("I") || orig.contains("N")) return;
         if (!orig.contains("E")) valueField.setText(orig + 'E');
     }
 
     private void numActionPerformedHandler(ActionEvent evt) {
-        if (valueField.getText().contains("I") || valueField.getText().contains("N")) valueField.setText("");
+        if (valueField.getText().contains("I") ||
+                     valueField.getText().contains("N")) valueField.setText("");
         valueField.setText(valueField.getText() + evt.getActionCommand());
     }
 
@@ -435,7 +414,8 @@ public class CalculatorApplet extends JApplet {
             currentValue = Double.parseDouble(orig);
         }
         catch (NumberFormatException nfe) {
-            JOptionPane.showMessageDialog(this, "Invalid Number!\nPress C to clear the input.");
+            JOptionPane.showMessageDialog(
+                          this, "Invalid Number!\nPress C to clear the input.");
             return;
         }
 
@@ -468,21 +448,25 @@ public class CalculatorApplet extends JApplet {
         operationLabel.setText(command);
         storedValueLabel.setText(String.valueOf(previousValue));
 
-        if ("=".equals(command)) valueField.setText(String.valueOf(previousValue));
+        if ("=".equals(command))
+            valueField.setText(String.valueOf(previousValue));
     }
 
     private void themeComboBoxItemStateChanged(ItemEvent evt) {
         SwingUtilities.invokeLater(() -> {
             try {
-                for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
-                    if (themeComboBox.getSelectedItem().equals(info.getName())) {
+                for (UIManager.LookAndFeelInfo info :
+                                           UIManager.getInstalledLookAndFeels())
+                    if(themeComboBox.getSelectedItem().equals(info.getName())) {
                         UIManager.setLookAndFeel(info.getClassName());
                         break;
                     }
                 SwingUtilities.updateComponentTreeUI(this);
             }
             catch (Exception ex) {
-                System.err.println("Cannot set "+themeComboBox.getSelectedItem()+" theme.");
+                System.err.println(
+                    "Cannot set " + themeComboBox.getSelectedItem() + " theme."
+                );
             }
         });
     }
@@ -564,10 +548,17 @@ public class CalculatorApplet extends JApplet {
     private void valueFieldKeyPressed(KeyEvent evt) {
         switch (evt.getKeyCode()) {
         case KeyEvent.VK_UP:
-            themeComboBox.setSelectedIndex((themeComboBox.getSelectedIndex() == 0 ? themeComboBox.getItemCount() : themeComboBox.getSelectedIndex()) - 1);
+            themeComboBox.setSelectedIndex(
+                (themeComboBox.getSelectedIndex() == 0 ?
+                 themeComboBox.getItemCount() :
+                 themeComboBox.getSelectedIndex()) - 1
+            );
             break;
         case KeyEvent.VK_DOWN:
-            themeComboBox.setSelectedIndex(themeComboBox.getSelectedIndex() == themeComboBox.getItemCount() - 1 ? 0 : themeComboBox.getSelectedIndex() + 1);
+            themeComboBox.setSelectedIndex(
+                themeComboBox.getSelectedIndex() == themeComboBox.getItemCount()
+                                  - 1 ? 0 : themeComboBox.getSelectedIndex() + 1
+            );
             break;
         default:
             break;

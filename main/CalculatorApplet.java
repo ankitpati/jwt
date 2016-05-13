@@ -508,7 +508,7 @@ public class CalculatorApplet extends JApplet {
             num6Button.doClick();
             break;
         case '7':
-            num8Button.doClick();
+            num7Button.doClick();
             break;
         case '8':
             num8Button.doClick();

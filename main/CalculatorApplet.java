@@ -78,58 +78,52 @@ public class CalculatorApplet extends JApplet {
         });
 
         backspaceButton.setText("⌫");
-        backspaceButton.addActionListener((ActionEvent evt) ->
-                                           backspaceButtonActionPerformed(evt));
+        backspaceButton.addActionListener(this::backspaceButtonActionPerformed);
 
         for (num = 0; num < 10; ++num) {
             numButtons[num] = new JButton("" + num);
-            numButtons[num].addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
+            numButtons[num].addActionListener(this::numActionPerformedHandler);
         }
 
         decimalPointButton.setText(".");
-        decimalPointButton.addActionListener((ActionEvent evt) ->
-                                        decimalPointButtonActionPerformed(evt));
+        decimalPointButton.addActionListener(this::
+                                             decimalPointButtonActionPerformed);
 
         exponentConstantButton.setText("E");
-        exponentConstantButton.addActionListener((ActionEvent evt) ->
-                                    exponentConstantButtonActionPerformed(evt));
+        exponentConstantButton.addActionListener(this::
+                                         exponentConstantButtonActionPerformed);
 
         additionButton.setText("+");
-        additionButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        additionButton.addActionListener(this::
+                                             calculationActionPerformedHandler);
 
         subtractionButton.setText("-");
-        subtractionButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        subtractionButton.addActionListener(this::
+                                             calculationActionPerformedHandler);
 
         multiplicationButton.setText("✕");
-        multiplicationButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        multiplicationButton.addActionListener(this::
+                                             calculationActionPerformedHandler);
 
         divisionButton.setText("/");
-        divisionButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        divisionButton.addActionListener(this::
+                                             calculationActionPerformedHandler);
 
         powerButton.setText("^");
-        powerButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        powerButton.addActionListener(this::calculationActionPerformedHandler);
 
         rootButton.setText("√");
-        rootButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        rootButton.addActionListener(this::calculationActionPerformedHandler);
 
         calculateButton.setText("=");
-        calculateButton.addActionListener((ActionEvent evt) ->
-                                        calculationActionPerformedHandler(evt));
+        calculateButton.addActionListener(this::
+                                             calculationActionPerformedHandler);
 
         clearButton.setText("c");
-        clearButton.addActionListener((ActionEvent evt) ->
-                                               clearButtonActionPerformed(evt));
+        clearButton.addActionListener(this::clearButtonActionPerformed);
 
         themeComboBox.setToolTipText("Look and Feel");
-        themeComboBox.addItemListener((ItemEvent evt) ->
-                                            themeComboBoxItemStateChanged(evt));
+        themeComboBox.addItemListener(this::themeComboBoxItemStateChanged);
 
         setLayout(new GridBagLayout());
 

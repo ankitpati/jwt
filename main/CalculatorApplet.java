@@ -12,14 +12,37 @@ public class CalculatorApplet extends JApplet {
 
     public void init() {
         initComponents();
+
         getRootPane().setDefaultButton(calculateButton);
+
         SwingUtilities.invokeLater(() -> {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) themeComboBox.addItem(info.getName());
             themeComboBox.setSelectedItem("Nimbus");
         });
     }
 
+    private GridBagConstraints initGridBagConstraints(int gridwidth)
+    {
+        GridBagConstraints gbc;
+
+        gbc = new GridBagConstraints();
+        gbc.gridx = GridBagConstraints.RELATIVE;
+        gbc.gridy = GridBagConstraints.RELATIVE;
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.gridwidth = gridwidth;
+        gbc.ipadx = gbc.gridwidth * 50;
+
+        return gbc;
+    }
+
+    private GridBagConstraints initGridBagConstraints()
+    {
+        return initGridBagConstraints(1);
+    }
+
     private void initComponents() {
+        GridBagConstraints gbc;
+
         storedValueLabel = new JLabel();
         operationLabel = new JLabel();
         valueField = new JTextField();
@@ -236,115 +259,115 @@ public class CalculatorApplet extends JApplet {
             }
         });
 
-        GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(themeComboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(storedValueLabel, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(operationLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(calculateButton)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(clearButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(powerButton)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(rootButton))
-                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(valueField, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(backspaceButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(num4Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num5Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num6Button))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(num7Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num8Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num9Button))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(num1Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num2Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num3Button))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(exponentConstantButton)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(num0Button)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(decimalPointButton)))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(additionButton)
-                                .addComponent(subtractButton)
-                                .addComponent(multiplicationButton)
-                                .addComponent(divisionButton)))))
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        setLayout(new GridBagLayout());
 
-        layout.linkSize(SwingConstants.HORIZONTAL, new Component[] {additionButton, calculateButton, clearButton, decimalPointButton, divisionButton, exponentConstantButton, multiplicationButton, num0Button, num1Button, num2Button, num3Button, num4Button, num5Button, num6Button, num7Button, num8Button, num9Button, powerButton, rootButton, subtractButton});
+        gbc = initGridBagConstraints(3);
+        storedValueLabel.setMinimumSize(new Dimension(0, 15));
+        add(storedValueLabel, gbc);
 
-        layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(operationLabel)
-                    .addComponent(storedValueLabel))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(valueField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backspaceButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(calculateButton)
-                    .addComponent(powerButton)
-                    .addComponent(rootButton)
-                    .addComponent(clearButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num1Button)
-                    .addComponent(num2Button)
-                    .addComponent(num3Button)
-                    .addComponent(additionButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num4Button)
-                    .addComponent(num5Button)
-                    .addComponent(num6Button)
-                    .addComponent(subtractButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num7Button)
-                    .addComponent(num8Button)
-                    .addComponent(num9Button)
-                    .addComponent(multiplicationButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(num0Button)
-                    .addComponent(divisionButton)
-                    .addComponent(decimalPointButton)
-                    .addComponent(exponentConstantButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(themeComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        storedValueLabel.setMinimumSize(new Dimension(0, 15));
+        add(operationLabel, gbc);
 
-        layout.linkSize(SwingConstants.VERTICAL, new Component[] {additionButton, calculateButton, clearButton, decimalPointButton, divisionButton, exponentConstantButton, multiplicationButton, num0Button, num1Button, num2Button, num3Button, num4Button, num5Button, num6Button, num7Button, num8Button, num9Button, powerButton, rootButton, subtractButton, valueField});
+        gbc = initGridBagConstraints(3);
+        storedValueLabel.setMinimumSize(new Dimension(0, 27));
+        add(valueField, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        backspaceButton.setMinimumSize(new Dimension(0, 27));
+        add(backspaceButton, gbc);
+
+        gbc = initGridBagConstraints();
+        calculateButton.setMinimumSize(new Dimension(0, 27));
+        add(calculateButton, gbc);
+
+        gbc = initGridBagConstraints();
+        clearButton.setMinimumSize(new Dimension(0, 27));
+        add(clearButton, gbc);
+
+        gbc = initGridBagConstraints();
+        powerButton.setMinimumSize(new Dimension(0, 27));
+        add(powerButton, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        rootButton.setMinimumSize(new Dimension(0, 27));
+        add(rootButton, gbc);
+
+        gbc = initGridBagConstraints();
+        num1Button.setMinimumSize(new Dimension(0, 27));
+        add(num1Button, gbc);
+
+        gbc = initGridBagConstraints();
+        num2Button.setMinimumSize(new Dimension(0, 27));
+        add(num2Button, gbc);
+
+        gbc = initGridBagConstraints();
+        num3Button.setMinimumSize(new Dimension(0, 27));
+        add(num3Button, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        additionButton.setMinimumSize(new Dimension(0, 27));
+        add(additionButton, gbc);
+
+        gbc = initGridBagConstraints();
+        num4Button.setMinimumSize(new Dimension(0, 27));
+        add(num4Button, gbc);
+
+        gbc = initGridBagConstraints();
+        num5Button.setMinimumSize(new Dimension(0, 27));
+        add(num5Button, gbc);
+
+        gbc = initGridBagConstraints();
+        num6Button.setMinimumSize(new Dimension(0, 27));
+        add(num6Button, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        subtractButton.setMinimumSize(new Dimension(0, 27));
+        add(subtractButton, gbc);
+
+        gbc = initGridBagConstraints();
+        num7Button.setMinimumSize(new Dimension(0, 27));
+        add(num7Button, gbc);
+
+        gbc = initGridBagConstraints();
+        num8Button.setMinimumSize(new Dimension(0, 27));
+        add(num8Button, gbc);
+
+        gbc = initGridBagConstraints();
+        num9Button.setMinimumSize(new Dimension(0, 27));
+        add(num9Button, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        multiplicationButton.setMinimumSize(new Dimension(0, 27));
+        add(multiplicationButton, gbc);
+
+        gbc = initGridBagConstraints();
+        exponentConstantButton.setMinimumSize(new Dimension(0, 27));
+        add(exponentConstantButton, gbc);
+
+        gbc = initGridBagConstraints();
+        num0Button.setMinimumSize(new Dimension(0, 27));
+        add(num0Button, gbc);
+
+        gbc = initGridBagConstraints();
+        decimalPointButton.setMinimumSize(new Dimension(0, 27));
+        add(decimalPointButton, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        divisionButton.setMinimumSize(new Dimension(0, 27));
+        add(divisionButton, gbc);
+
+        gbc = initGridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        add(themeComboBox, gbc);
     }
 
     private void clearButtonActionPerformed(ActionEvent evt) {
@@ -595,7 +618,7 @@ class CalculatorFrame extends JFrame {
         calculatorApplet.init();
 
         setTitle("Calculator");
-        setSize(220, 300);
+        setSize(250, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         add(calculatorApplet);
@@ -607,6 +630,6 @@ class CalculatorFrame extends JFrame {
     private JApplet calculatorApplet;
 };
 /*
-    <object code="CalculatorApplet" width="220" height="300"></object>
+    <object code="CalculatorApplet" width="250" height="300"></object>
 */
 /* end of CalculatorApplet.java */

@@ -34,7 +34,7 @@ class NextFrame extends JFrame{
         gbc.insets = insets;
 
         setTitle("Next Frame");
-        setSize(200, 200);
+        setSize(500, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new GridBagLayout());
 
@@ -59,6 +59,7 @@ public class ProductInformation extends JFrame implements ActionListener{
 
     private JLabel idLabel, nameLabel, descriptionLabel;
     private JTextField idField, nameField;
+    private JScrollPane descriptionScrollPane;
     private JTextArea descriptionTextArea;
     private JButton submitButton, cancelButton;
 
@@ -138,7 +139,9 @@ public class ProductInformation extends JFrame implements ActionListener{
         gbc.insets = insets;
         add(descriptionLabel, gbc);
 
+        descriptionScrollPane = new JScrollPane();
         descriptionTextArea = new JTextArea();
+        descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setFont(font);
         gbc = new GridBagConstraints();
         gbc.gridx = GridBagConstraints.RELATIVE;
@@ -148,7 +151,8 @@ public class ProductInformation extends JFrame implements ActionListener{
         gbc.insets = new Insets(5, 175, 5, 175);
         gbc.ipadx = 50;
         gbc.ipady = 20;
-        add(descriptionTextArea, gbc);
+        descriptionScrollPane.setViewportView(descriptionTextArea);
+        add(descriptionScrollPane, gbc);
 
         submitButton = new JButton("Submit");
         submitButton.setFont(font);

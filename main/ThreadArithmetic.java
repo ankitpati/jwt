@@ -6,11 +6,10 @@
 import java.util.Scanner;
 
 public class ThreadArithmetic extends Thread{
-    static boolean locked;
+    static boolean locked = false;
 
     ThreadArithmetic(String operation)
     {
-        locked = false;
         setName(operation);
         start();
     }

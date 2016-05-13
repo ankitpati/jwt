@@ -54,7 +54,7 @@ public class CalculatorApplet extends JApplet {
         decimalPointButton = new JButton();
         exponentConstantButton = new JButton();
         additionButton = new JButton();
-        subtractButton = new JButton();
+        subtractionButton = new JButton();
         multiplicationButton = new JButton();
         divisionButton = new JButton();
         powerButton = new JButton();
@@ -99,8 +99,8 @@ public class CalculatorApplet extends JApplet {
         additionButton.addActionListener((ActionEvent evt) ->
                                         calculationActionPerformedHandler(evt));
 
-        subtractButton.setText("-");
-        subtractButton.addActionListener((ActionEvent evt) ->
+        subtractionButton.setText("-");
+        subtractionButton.addActionListener((ActionEvent evt) ->
                                         calculationActionPerformedHandler(evt));
 
         multiplicationButton.setText("✕");
@@ -175,9 +175,9 @@ public class CalculatorApplet extends JApplet {
             add(numButtons[num], gbc);
         }
 
-        gbc = initComponentLayout(subtractButton, 1);
+        gbc = initComponentLayout(subtractionButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        add(subtractButton, gbc);
+        add(subtractionButton, gbc);
 
         for (num = 7; num <= 9; ++num) {
             gbc = initComponentLayout(numButtons[num], 1);
@@ -359,7 +359,7 @@ public class CalculatorApplet extends JApplet {
             additionButton.doClick();
             break;
         case '-':
-            subtractButton.doClick();
+            subtractionButton.doClick();
             break;
         case '*':   /* intended fall-through */
         case 'x':
@@ -418,7 +418,7 @@ public class CalculatorApplet extends JApplet {
     private JButton powerButton;
     private JButton rootButton;
     private JLabel storedValueLabel;
-    private JButton subtractButton;
+    private JButton subtractionButton;
     private JComboBox<String> themeComboBox;
     private JTextField valueField;
 };

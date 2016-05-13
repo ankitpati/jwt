@@ -43,22 +43,14 @@ public class CalculatorApplet extends JApplet {
     }
 
     private void initComponents() {
+        int num;
         GridBagConstraints gbc;
 
         storedValueLabel = new JLabel();
         operationLabel = new JLabel();
         valueField = new JTextField();
         backspaceButton = new JButton();
-        num0Button = new JButton();
-        num1Button = new JButton();
-        num2Button = new JButton();
-        num3Button = new JButton();
-        num4Button = new JButton();
-        num5Button = new JButton();
-        num6Button = new JButton();
-        num7Button = new JButton();
-        num8Button = new JButton();
-        num9Button = new JButton();
+        numButtons = new JButton[10];
         decimalPointButton = new JButton();
         exponentConstantButton = new JButton();
         additionButton = new JButton();
@@ -89,45 +81,11 @@ public class CalculatorApplet extends JApplet {
         backspaceButton.addActionListener((ActionEvent evt) ->
                                            backspaceButtonActionPerformed(evt));
 
-        num0Button.setText("0");
-        num0Button.addActionListener((ActionEvent evt) ->
+        for (num = 0; num < 10; ++num) {
+            numButtons[num] = new JButton("" + num);
+            numButtons[num].addActionListener((ActionEvent evt) ->
                                                 numActionPerformedHandler(evt));
-
-        num1Button.setText("1");
-        num1Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num2Button.setText("2");
-        num2Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num3Button.setText("3");
-        num3Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num4Button.setText("4");
-        num4Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num5Button.setText("5");
-        num5Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num6Button.setText("6");
-        num6Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num7Button.setText("7");
-        num7Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num8Button.setText("8");
-        num8Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
-
-        num9Button.setText("9");
-        num9Button.addActionListener((ActionEvent evt) ->
-                                                numActionPerformedHandler(evt));
+        }
 
         decimalPointButton.setText(".");
         decimalPointButton.addActionListener((ActionEvent evt) ->
@@ -203,40 +161,28 @@ public class CalculatorApplet extends JApplet {
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(rootButton, gbc);
 
-        gbc = initComponentLayout(num1Button, 1);
-        add(num1Button, gbc);
-
-        gbc = initComponentLayout(num2Button, 1);
-        add(num2Button, gbc);
-
-        gbc = initComponentLayout(num3Button, 1);
-        add(num3Button, gbc);
+        for (num = 1; num <= 3; ++num) {
+            gbc = initComponentLayout(numButtons[num], 1);
+            add(numButtons[num], gbc);
+        }
 
         gbc = initComponentLayout(additionButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(additionButton, gbc);
 
-        gbc = initComponentLayout(num4Button, 1);
-        add(num4Button, gbc);
-
-        gbc = initComponentLayout(num5Button, 1);
-        add(num5Button, gbc);
-
-        gbc = initComponentLayout(num6Button, 1);
-        add(num6Button, gbc);
+        for (num = 4; num <= 6; ++num) {
+            gbc = initComponentLayout(numButtons[num], 1);
+            add(numButtons[num], gbc);
+        }
 
         gbc = initComponentLayout(subtractButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(subtractButton, gbc);
 
-        gbc = initComponentLayout(num7Button, 1);
-        add(num7Button, gbc);
-
-        gbc = initComponentLayout(num8Button, 1);
-        add(num8Button, gbc);
-
-        gbc = initComponentLayout(num9Button, 1);
-        add(num9Button, gbc);
+        for (num = 7; num <= 9; ++num) {
+            gbc = initComponentLayout(numButtons[num], 1);
+            add(numButtons[num], gbc);
+        }
 
         gbc = initComponentLayout(multiplicationButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -245,8 +191,8 @@ public class CalculatorApplet extends JApplet {
         gbc = initComponentLayout(exponentConstantButton, 1);
         add(exponentConstantButton, gbc);
 
-        gbc = initComponentLayout(num0Button, 1);
-        add(num0Button, gbc);
+        gbc = initComponentLayout(numButtons[0], 1);
+        add(numButtons[0], gbc);
 
         gbc = initComponentLayout(decimalPointButton, 1);
         add(decimalPointButton, gbc);
@@ -386,37 +332,12 @@ public class CalculatorApplet extends JApplet {
     }
 
     private void valueFieldKeyTyped(KeyEvent evt) {
+        if (Character.isDigit(evt.getKeyChar())) {
+            numButtons[Character.digit(evt.getKeyChar(), 10)].doClick();
+            return;
+        }
+
         switch (evt.getKeyChar()) {
-        case '1':
-            num1Button.doClick();
-            break;
-        case '2':
-            num2Button.doClick();
-            break;
-        case '3':
-            num3Button.doClick();
-            break;
-        case '4':
-            num4Button.doClick();
-            break;
-        case '5':
-            num5Button.doClick();
-            break;
-        case '6':
-            num6Button.doClick();
-            break;
-        case '7':
-            num7Button.doClick();
-            break;
-        case '8':
-            num8Button.doClick();
-            break;
-        case '9':
-            num9Button.doClick();
-            break;
-        case '0':
-            num0Button.doClick();
-            break;
         case '.':
             decimalPointButton.doClick();
             break;
@@ -492,16 +413,7 @@ public class CalculatorApplet extends JApplet {
     private JButton divisionButton;
     private JButton exponentConstantButton;
     private JButton multiplicationButton;
-    private JButton num0Button;
-    private JButton num1Button;
-    private JButton num2Button;
-    private JButton num3Button;
-    private JButton num4Button;
-    private JButton num5Button;
-    private JButton num6Button;
-    private JButton num7Button;
-    private JButton num8Button;
-    private JButton num9Button;
+    private JButton numButtons[];
     private JLabel operationLabel;
     private JButton powerButton;
     private JButton rootButton;

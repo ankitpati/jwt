@@ -86,179 +86,113 @@ public class CalculatorApplet extends JApplet {
 
         backspaceButton.setText("⌫");
         backspaceButton.setFocusable(false);
-        backspaceButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                backspaceButtonActionPerformed(evt);
-            }
-        });
+        backspaceButton.addActionListener((ActionEvent evt) ->
+                                           backspaceButtonActionPerformed(evt));
 
         num0Button.setText("0");
         num0Button.setFocusable(false);
-        num0Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num0Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num1Button.setText("1");
         num1Button.setFocusable(false);
-        num1Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num1Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num2Button.setText("2");
         num2Button.setFocusable(false);
-        num2Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num2Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num3Button.setText("3");
         num3Button.setFocusable(false);
-        num3Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num3Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num4Button.setText("4");
         num4Button.setFocusable(false);
-        num4Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num4Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num5Button.setText("5");
         num5Button.setFocusable(false);
-        num5Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num5Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num6Button.setText("6");
         num6Button.setFocusable(false);
-        num6Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num6Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num7Button.setText("7");
         num7Button.setFocusable(false);
-        num7Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num7Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num8Button.setText("8");
         num8Button.setFocusable(false);
-        num8Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num8Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         num9Button.setText("9");
         num9Button.setFocusable(false);
-        num9Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                numActionPerformedHandler(evt);
-            }
-        });
+        num9Button.addActionListener((ActionEvent evt) ->
+                                                numActionPerformedHandler(evt));
 
         decimalPointButton.setText(".");
         decimalPointButton.setFocusable(false);
-        decimalPointButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                decimalPointButtonActionPerformed(evt);
-            }
-        });
+        decimalPointButton.addActionListener((ActionEvent evt) ->
+                                        decimalPointButtonActionPerformed(evt));
 
         exponentConstantButton.setText("E");
         exponentConstantButton.setFocusable(false);
-        exponentConstantButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                exponentConstantButtonActionPerformed(evt);
-            }
-        });
+        exponentConstantButton.addActionListener((ActionEvent evt) ->
+                                    exponentConstantButtonActionPerformed(evt));
 
         additionButton.setText("+");
         additionButton.setFocusable(false);
-        additionButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        additionButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         subtractButton.setText("-");
         subtractButton.setFocusable(false);
-        subtractButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        subtractButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         multiplicationButton.setText("✕");
         multiplicationButton.setFocusable(false);
-        multiplicationButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        multiplicationButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         divisionButton.setText("/");
         divisionButton.setFocusable(false);
-        divisionButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        divisionButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         powerButton.setText("^");
         powerButton.setFocusable(false);
-        powerButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        powerButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         rootButton.setText("√");
         rootButton.setFocusable(false);
-        rootButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        rootButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         calculateButton.setText("=");
         calculateButton.setFocusable(false);
-        calculateButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                calculationActionPerformedHandler(evt);
-            }
-        });
+        calculateButton.addActionListener((ActionEvent evt) ->
+                                        calculationActionPerformedHandler(evt));
 
         clearButton.setText("c");
         clearButton.setFocusable(false);
-        clearButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                clearButtonActionPerformed(evt);
-            }
-        });
+        clearButton.addActionListener((ActionEvent evt) ->
+                                               clearButtonActionPerformed(evt));
 
         themeComboBox.setToolTipText("Look and Feel");
         themeComboBox.setFocusable(false);
-        themeComboBox.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent evt) {
-                themeComboBoxItemStateChanged(evt);
-            }
-        });
+        themeComboBox.addItemListener((ItemEvent evt) ->
+                                            themeComboBoxItemStateChanged(evt));
 
         setLayout(new GridBagLayout());
 

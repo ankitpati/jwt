@@ -21,11 +21,8 @@ public class AdderClient{
         stub = (AdderInterface)Naming.lookup("rmi://10.10.229.208/add");
             /* replace "10.10.229.208" with real remote server IP address */
 
-        System.out.printf(
-            "Sum = %d\n",
-            stub.add(Integer.parseInt(args[0]),
-            Integer.parseInt(args[1]))
-        );
+        System.out.printf("Sum = %d\n",
+                stub.add(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
     }
 };
 /* end of AdderClient.java */

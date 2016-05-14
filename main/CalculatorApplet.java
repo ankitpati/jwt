@@ -31,9 +31,10 @@ public class CalculatorApplet extends JApplet {
         gbc = new GridBagConstraints();
         gbc.gridx = GridBagConstraints.RELATIVE;
         gbc.gridy = GridBagConstraints.RELATIVE;
+        gbc.gridwidth = gridwidth;
+        gbc.weightx = gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.gridwidth = gridwidth;
         gbc.ipadx = gbc.gridwidth * 50;
 
         com.setFocusable(false);

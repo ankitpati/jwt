@@ -131,8 +131,6 @@ class Matrix{
         t = Matrix.multiply(m1, m2);
         System.out.printf("\nMultiplication:\n");
         Matrix.display(t);
-
-        return;
     }
 };
 /* end of Matrix.java */

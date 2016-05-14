@@ -35,8 +35,6 @@ class zeroEnd{
         System.out.printf("Zeros moved to end:\n");
         for(i = 0; i < a.length; ++i) System.out.printf("%d ", a[i]);
         System.out.printf("\n");
-
-        return;
     }
 };
 /* end of zeroEnd.java */

@@ -13,8 +13,6 @@ class BoxDemo{
 
         b.v = b.l * b.b * b.h;
         b.disp();
-
-        return;
     }
 };
 /* end of BoxDemo.java */

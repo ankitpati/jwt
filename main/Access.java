@@ -29,8 +29,6 @@ class Access{
         if(username.equals("SYIT") && password.equals("SYIT"))
             System.out.printf("Access Granted.\n");
         else throw new AccessDeniedException("Access Denied.");
-
-        return;
     }
 };
 /* end of Access.java */

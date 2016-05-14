@@ -42,8 +42,6 @@ class fileWords{
         for(i = 1; i < wordList.size(); ++i)
             System.out.printf("%s ", wordList.get(i));
         System.out.printf("\n");
-
-        return;
     }
 };
 /* end of fileWords.java */

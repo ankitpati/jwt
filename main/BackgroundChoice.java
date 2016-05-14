@@ -64,7 +64,6 @@ public class BackgroundChoice extends Frame{
     public static void main(String args[])
     {
         new BackgroundChoice();
-        return;
     }
 };
 /* end of BackgroundChoice.java */

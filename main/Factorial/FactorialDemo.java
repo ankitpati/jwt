@@ -14,7 +14,6 @@ class FactorialDemo{
             "Factorial = %d\n",
             Factorial.factorial(new Scanner(System.in).nextInt())
         );
-        return;
     }
 };
 /* end of FactorialDemo.java */

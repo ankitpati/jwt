@@ -29,8 +29,6 @@ class isAPresent{
             throw new ANotPresentException("No 'a' found.");
         else
             System.out.printf("'a' found at position %d.\n", i);
-
-        return;
     }
 };
 /* end of isAPresent.java */

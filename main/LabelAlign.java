@@ -42,7 +42,6 @@ public class LabelAlign extends Frame{
     public static void main(String args[])
     {
         new LabelAlign();
-        return;
     }
 };
 /* end of LabelAlign.java */

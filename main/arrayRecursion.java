@@ -41,8 +41,6 @@ class arrayRecursion{
 
         System.out.printf("Maximum Number: %d\nMinimum Number: %d\n",
                                                                 max(a), min(a));
-
-        return;
     }
 };
 /* end of arrayRecursion.java */

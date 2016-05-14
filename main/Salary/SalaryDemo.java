@@ -38,8 +38,6 @@ class SalaryDemo{
         finally{
             System.out.printf("Final\n");
         }
-
-        return;
     }
 };
 /* end of SalaryDemo.java */

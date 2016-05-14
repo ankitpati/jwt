@@ -66,8 +66,6 @@ class Result extends Student implements Exam{
         r = new Result(name, roll, mark1, mark2);
 
         r.display();
-
-        return;
     }
 };
 /* end of Result.java */

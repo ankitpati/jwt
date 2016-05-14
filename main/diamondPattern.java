@@ -20,8 +20,6 @@ class diamondPattern{
             System.out.printf("\n");
             if(i == n) low = true;
         }
-
-        return;
     }
 };
 /* end of diamondPattern.java */

@@ -32,8 +32,6 @@ class reverseRecursive{
         str = new Scanner(System.in).nextLine();
 
         System.out.printf("Reversed String:\n%s\n", recrev(str));
-
-        return;
     }
 };
 /* end of reverseRecursive.java */

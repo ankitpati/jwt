@@ -39,7 +39,6 @@ public class BorderDirections extends Frame{
     public static void main(String args[])
     {
         new BorderDirections();
-        return;
     }
 };
 /* end of BorderDirections.java */

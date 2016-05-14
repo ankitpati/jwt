@@ -33,8 +33,6 @@ class Savings extends Account implements Transaction{
 
         s.deposit(1000.00f);
         s.display();
-
-        return;
     }
 };
 /* end of Savings.java */

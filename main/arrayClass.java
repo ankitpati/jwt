@@ -105,8 +105,6 @@ class arrayClass{
         System.out.printf("\n");
 
         System.out.printf("~~~~\n\n");
-
-        return;
     }
 };
 /* end of arrayClass.java */

@@ -66,8 +66,6 @@ class Organisation implements Comparable<Organisation>{
         o2 = new Organisation();
         System.out.printf("The two organisations are %ssame.\n\n",
                                                    o1.equals(o2) ? "" : "not ");
-
-        return;
     }
 };
 

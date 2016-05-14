@@ -35,8 +35,6 @@ class IntStackDemo{
             System.err.printf(e.getMessage());
         }
         System.out.printf("\n");
-
-        return;
     }
 };
 /* end of IntStackDemo.java */

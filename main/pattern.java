@@ -19,8 +19,6 @@ class pattern{
                 System.out.printf("*");
             System.out.printf("\n");
         }
-
-        return;
     }
 };
 /* end of pattern.java */

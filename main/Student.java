@@ -71,8 +71,6 @@ class Student{
                 s[i].weight > 90.5f && s[i].height < 175.0f
             ) System.out.printf("%s\n", s[i]);
         }
-
-        return;
     }
 };
 /* end of Student.java */

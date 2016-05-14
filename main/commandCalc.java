@@ -89,8 +89,6 @@ class commandCalc{
             }
             if(choice >= 1 && choice <= 8) System.out.printf("= %f\n\n", st0);
         } while(choice != 0);
-
-        return;
     }
 };
 /* end of commandCalc.java */

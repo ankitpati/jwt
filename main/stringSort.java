@@ -34,8 +34,6 @@ class stringSort{
         str = new Scanner(System.in).nextLine();
 
         System.out.printf("Sorted string:\n%s\n", sort(str));
-
-        return;
     }
 };
 /* end of stringSort.java */

@@ -38,8 +38,6 @@ class repeatedElements{
                 }
             if(count > k) System.out.printf("%d\n", a[i]);
         }
-
-        return;
     }
 };
 /* end of repeatedElements.java */

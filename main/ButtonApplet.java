@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class ButtonApplet extends Applet implements ActionListener{
     final static long serialVersionUID = 0l;
 
-    @Override public void init()
+    public void init()
     {
         Button r, g, b;
 
@@ -24,7 +24,7 @@ public class ButtonApplet extends Applet implements ActionListener{
         b.addActionListener(this);
     }
 
-    @Override public void actionPerformed(ActionEvent e)
+    public void actionPerformed(ActionEvent e)
     {
         String str;
 

@@ -44,8 +44,6 @@ class Arithmetic implements ArithOps{
             ch == 1 ? ar.add(a, b) : ch == 2 ? ar.sub(a, b) :
                 ch == 3 ? ar.mul(a, b) : ch == 4 ? ar.div(a, b) : 'x'
         );
-
-        return;
     }
 };
 /* end of Arithmetic.java */

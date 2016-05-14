@@ -24,8 +24,6 @@ class pyramid{
                 System.out.printf("%3d ", (i*(i+1)/2 + j) * x);
             System.out.printf("\n");
         }
-
-        return;
     }
 };
 /* end of pyramid.java */

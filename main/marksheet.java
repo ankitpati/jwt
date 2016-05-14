@@ -62,8 +62,6 @@ class marksheet{
 
         s.getMarks();
         s.generateMarksheet();
-
-        return;
     }
 };
 /* end of marksheet.java */

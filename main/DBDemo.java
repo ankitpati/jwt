@@ -37,7 +37,6 @@ public class DBDemo
         while(rs.next()) System.out.printf("%s\n", rs.getString("username"));
 
         c.close();
-        return;
     }
 };
 /* end of DBDemo.java */

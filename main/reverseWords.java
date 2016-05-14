@@ -28,8 +28,6 @@ class reverseWords{
         System.out.printf("Sentence with reversed words:\n");
         while(st.hasMoreTokens())
             System.out.printf("%s ", revstr(st.nextToken()));
-
-        return;
     }
 };
 /* end of reverseWords.java */

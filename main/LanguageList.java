@@ -67,7 +67,6 @@ public class LanguageList extends Frame{
     public static void main(String args[])
     {
         new LanguageList();
-        return;
     }
 };
 /* end of LanguageList.java */

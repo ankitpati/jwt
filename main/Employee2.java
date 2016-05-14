@@ -55,8 +55,6 @@ abstract class Employee2{
         while(k < h.length) e[i++] = h[k++];
 
         for(i = 0; i < e.length; ++i) System.out.printf("%s\n", e[i].getName());
-
-        return;
     }
 };
 

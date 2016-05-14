@@ -35,8 +35,6 @@ class arrayOddEven{
         System.out.printf("Odd  elements:\n");
         for(i = 0; i < k; ++i) System.out.printf("%d ", odd [i]);
         System.out.printf("\n");
-
-        return;
     }
 };
 /* end of arrayOddEven.java */

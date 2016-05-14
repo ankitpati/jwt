@@ -49,8 +49,6 @@ class countWords{
             "Number of occurences are %d.\n",
             wordCount(para, word)
         );
-
-        return;
     }
 };
 /* end of countWords.java */

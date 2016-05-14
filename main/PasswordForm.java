@@ -104,7 +104,6 @@ public class PasswordForm extends Frame{
     public static void main(String args[])
     {
         new PasswordForm();
-        return;
     }
 };
 /* end of PasswordForm.java */

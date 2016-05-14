@@ -44,8 +44,6 @@ class Employee{
         e = new Employee(emp_id, emp_name, basic_salary);
 
         System.out.printf("Gross Salary is %.2f.\n", e.getGrossSalary());
-
-        return;
     }
 };
 /* end of Employee.java */

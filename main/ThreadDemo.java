@@ -14,7 +14,6 @@ public class ThreadDemo implements Runnable{
         Thread t;
         t = new Thread(new ThreadDemo());
         t.start();
-        return;
     }
 };
 /* end of ThreadDemo.java */

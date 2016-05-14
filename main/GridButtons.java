@@ -39,7 +39,6 @@ public class GridButtons extends Frame{
     public static void main(String args[])
     {
         new GridButtons();
-        return;
     }
 };
 /* end of GridButtons.java */

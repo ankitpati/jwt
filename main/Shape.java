@@ -81,8 +81,6 @@ abstract class Shape{
         s = new Rectangle(sc.nextDouble(), sc.nextDouble(), color, filled);
                                                                   sc.nextLine();
         System.out.printf("Details of Rectangle:\n%s\n", s);
-
-        return;
     }
 };
 

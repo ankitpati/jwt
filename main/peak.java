@@ -28,8 +28,6 @@ class peak{
             if((i == 0 || a[i] > a[i-1]) && (i == a.length-1 || a[i] > a[i+1]))
                 System.out.printf("%d ", a[i]);
         System.out.printf("\n");
-
-        return;
     }
 };
 /* end of peak.java */

@@ -23,8 +23,6 @@ class EmailValidation{
             System.out.printf("Email is valid.\n");
         else
             throw new InvalidEmailException("Email is invalid.");
-
-        return;
     }
 };
 /* end of EmailValidation.java */

@@ -51,8 +51,6 @@ public class ThreadArithmetic extends Thread{
     {
         new ThreadArithmetic("addition");
         new ThreadArithmetic("multiplication");
-
-        return;
     }
 };
 /* end of ThreadArithmetic.java */

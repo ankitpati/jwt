@@ -24,8 +24,6 @@ class electricityBill{
                                                          + 4.0f * (units - 250);
 
         System.out.printf("Bill amount is %f.\n", bill);
-
-        return;
     }
 };
 /* end of electricityBill.java */

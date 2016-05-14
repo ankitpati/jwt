@@ -21,8 +21,6 @@ class MajorsOnly{
             throw new MinorException("Minors not allowed.");
         else
             System.out.printf("Majors are allowed.\n");
-
-        return;
     }
 };
 /* end of MajorsOnly.java */

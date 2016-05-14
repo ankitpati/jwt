@@ -39,8 +39,6 @@ class LoginDemo{
         catch(LoginException le){
             System.err.printf(le.getMessage());
         }
-
-        return;
     }
 };
 /* end of LoginDemo.java */

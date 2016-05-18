@@ -26,9 +26,8 @@ public class CalculatorApplet extends JApplet {
 
     private GridBagConstraints initComponentLayout(Component com, int gridwidth)
     {
-        GridBagConstraints gbc;
+        GridBagConstraints gbc = new GridBagConstraints();
 
-        gbc = new GridBagConstraints();
         gbc.gridx = GridBagConstraints.RELATIVE;
         gbc.gridy = GridBagConstraints.RELATIVE;
         gbc.gridwidth = gridwidth;
@@ -46,23 +45,6 @@ public class CalculatorApplet extends JApplet {
     private void initComponents() {
         int num;
         GridBagConstraints gbc;
-
-        storedValueLabel = new JLabel();
-        operationLabel = new JLabel();
-        valueField = new JTextField();
-        backspaceButton = new JButton();
-        numButtons = new JButton[10];
-        decimalPointButton = new JButton();
-        exponentConstantButton = new JButton();
-        additionButton = new JButton();
-        subtractionButton = new JButton();
-        multiplicationButton = new JButton();
-        divisionButton = new JButton();
-        powerButton = new JButton();
-        rootButton = new JButton();
-        calculateButton = new JButton();
-        clearButton = new JButton();
-        themeComboBox = new JComboBox<String>();
 
         storedValueLabel.setText("0.0");
 
@@ -128,8 +110,7 @@ public class CalculatorApplet extends JApplet {
 
         setLayout(new GridBagLayout());
 
-        gbc = initComponentLayout(storedValueLabel, 3);
-        add(storedValueLabel, gbc);
+        add(storedValueLabel, initComponentLayout(storedValueLabel, 3));
 
         gbc = initComponentLayout(operationLabel, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -143,14 +124,9 @@ public class CalculatorApplet extends JApplet {
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(backspaceButton, gbc);
 
-        gbc = initComponentLayout(calculateButton, 1);
-        add(calculateButton, gbc);
-
-        gbc = initComponentLayout(clearButton, 1);
-        add(clearButton, gbc);
-
-        gbc = initComponentLayout(powerButton, 1);
-        add(powerButton, gbc);
+        add(calculateButton, initComponentLayout(calculateButton, 1));
+        add(clearButton, initComponentLayout(clearButton, 1));
+        add(powerButton, initComponentLayout(powerButton, 1));
 
         gbc = initComponentLayout(rootButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -183,14 +159,10 @@ public class CalculatorApplet extends JApplet {
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(multiplicationButton, gbc);
 
-        gbc = initComponentLayout(exponentConstantButton, 1);
-        add(exponentConstantButton, gbc);
-
-        gbc = initComponentLayout(numButtons[0], 1);
-        add(numButtons[0], gbc);
-
-        gbc = initComponentLayout(decimalPointButton, 1);
-        add(decimalPointButton, gbc);
+        add(exponentConstantButton, initComponentLayout(exponentConstantButton,
+                                                                            1));
+        add(numButtons[0], initComponentLayout(numButtons[0], 1));
+        add(decimalPointButton, initComponentLayout(decimalPointButton, 1));
 
         gbc = initComponentLayout(divisionButton, 1);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -208,9 +180,7 @@ public class CalculatorApplet extends JApplet {
     }
 
     private void decimalPointButtonActionPerformed(ActionEvent evt) {
-        String orig;
-
-        orig = valueField.getText();
+        String orig = valueField.getText();
 
         if (orig.contains(".") || orig.contains("E")) return;
         if (orig.contains("I") || orig.contains("N"))
@@ -225,15 +195,13 @@ public class CalculatorApplet extends JApplet {
     }
 
     private void backspaceButtonActionPerformed(ActionEvent evt) {
-        String orig;
-        orig = valueField.getText();
+        String orig = valueField.getText();
         if (orig.length() == 0) return;
         valueField.setText(orig.substring(0, orig.length() - 1));
     }
 
     private void exponentConstantButtonActionPerformed(ActionEvent evt) {
-        String orig;
-        orig = valueField.getText();
+        String orig = valueField.getText();
         if ("".equals(orig) || "-".equals(orig) ||
                                orig.contains("I") || orig.contains("N")) return;
         if (!orig.contains("E")) valueField.setText(orig + 'E');
@@ -400,22 +368,22 @@ public class CalculatorApplet extends JApplet {
         new CalculatorFrame();
     }
 
-    private JButton additionButton;
-    private JButton backspaceButton;
-    private JButton calculateButton;
-    private JButton clearButton;
-    private JButton decimalPointButton;
-    private JButton divisionButton;
-    private JButton exponentConstantButton;
-    private JButton multiplicationButton;
-    private JButton numButtons[];
-    private JLabel operationLabel;
-    private JButton powerButton;
-    private JButton rootButton;
-    private JLabel storedValueLabel;
-    private JButton subtractionButton;
-    private JComboBox<String> themeComboBox;
-    private JTextField valueField;
+    private JButton additionButton = new JButton();
+    private JButton backspaceButton = new JButton();
+    private JButton calculateButton = new JButton();
+    private JButton clearButton = new JButton();
+    private JButton decimalPointButton = new JButton();
+    private JButton divisionButton = new JButton();
+    private JButton exponentConstantButton = new JButton();
+    private JButton multiplicationButton = new JButton();
+    private JButton numButtons[] = new JButton[10];
+    private JLabel operationLabel = new JLabel();
+    private JButton powerButton = new JButton();
+    private JButton rootButton = new JButton();
+    private JLabel storedValueLabel = new JLabel();
+    private JButton subtractionButton = new JButton();
+    private JComboBox<String> themeComboBox = new JComboBox<String>();
+    private JTextField valueField = new JTextField();
 };
 
 class CalculatorFrame extends JFrame {
@@ -426,7 +394,6 @@ class CalculatorFrame extends JFrame {
     }
 
     private void initComponents() {
-        calculatorApplet = new CalculatorApplet();
         calculatorApplet.init();
 
         setTitle("Calculator");
@@ -439,7 +406,7 @@ class CalculatorFrame extends JFrame {
         setVisible(true);
     }
 
-    private JApplet calculatorApplet;
+    private JApplet calculatorApplet = new CalculatorApplet();
 };
 /*
     <object code="CalculatorApplet" width="250" height="300"></object>

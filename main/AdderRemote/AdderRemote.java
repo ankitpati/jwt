@@ -6,25 +6,15 @@
 import java.rmi.*;
 import java.rmi.server.*;
 
-public class AdderRemote extends UnicastRemoteObject implements AdderInterface{
+public class AdderRemote extends UnicastRemoteObject implements AdderInterface {
     final static long serialVersionUID = 0l;
 
-    AdderRemote() throws RemoteException
-    {
+    AdderRemote() throws RemoteException {
         super();
     }
 
-    public int add(int x, int y)
-    {
+    public int add(int x, int y) {
         return x + y;
     }
 };
 /* end of AdderRemote.java */
-
-/* OUTPUT
-
-$ rmic AdderRemote
-
-./AdderRemote_Stub.class
-
-*/
